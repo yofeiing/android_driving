@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.yoflying.drivingschool.ui.CreateActivity">
+    tools:context="com.yoflying.drivingschool.admin.create.CreateActivity">
     <LinearLayout
         android:id="@+id/create_layout"
         android:layout_width="match_parent"

@@ -1,22 +1,19 @@
 package com.yoflying.drivingschool.modules.login;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.google.gson.Gson;
 import com.yoflying.drivingschool.DriverApplication;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.base.BasePresenter;
-import com.yoflying.drivingschool.bean.HttpsResult;
-import com.yoflying.drivingschool.bean.Person;
-import com.yoflying.drivingschool.bean.User;
+import com.yoflying.drivingschool.entity.HttpsResult;
+import com.yoflying.drivingschool.entity.Person;
+import com.yoflying.drivingschool.entity.User;
 import com.yoflying.drivingschool.config.Config;
-import com.yoflying.drivingschool.modules.login.IUserLoginView;
 import com.yoflying.drivingschool.retrofit.ApiCallBack;
 import com.yoflying.drivingschool.utils.UtilSharedPreferences;
 
 import okhttp3.RequestBody;
-import rx.Subscriber;
 
 /**用户登录控制器，负责view与model交互
  * Created by yaojiulong on 2016/12/21.

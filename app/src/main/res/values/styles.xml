@@ -10,6 +10,8 @@
         <item name="windowNoTitle">true</item>
         <!--返回键样式-->
         <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
+
+        <item name="android:listDivider">@drawable/divider_recyclerview</item>
     </style>
     <style name="AppTheme.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle">
         <item name="color">@android:color/white</item>
@@ -25,6 +27,13 @@
 
     <style name="toolbar_white_theme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
+    </style>
+    <style name="ThemeSplash" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@drawable/wecome_bg</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
 </resources>

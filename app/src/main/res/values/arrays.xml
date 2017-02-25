@@ -6,4 +6,13 @@
         <item>科目三</item>
         <item>科目四</item>
     </string-array>
+
+    <string-array name="course_config_array">
+
+        <item>二</item>
+        <item>三</item>
+
+    </string-array>
+
+
 </resources>

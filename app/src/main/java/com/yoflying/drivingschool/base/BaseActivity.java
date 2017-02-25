@@ -1,8 +1,10 @@
 package com.yoflying.drivingschool.base;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -11,6 +13,7 @@ import android.os.PersistableBundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -18,9 +21,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.yoflying.drivingschool.R;
+import com.yoflying.drivingschool.view.ColoredSnackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,11 +39,15 @@ public abstract class BaseActivity extends AppCompatActivity implements Activity
     private static final int REQUEST_CODE_PERMISSON = 2020; //权限请求码
     private boolean isNeedCheckPermission = true; //判断是否需要检测，防止无限弹框申请权限
     private Toolbar mToolbar;
+    private ProgressDialog mDialog;
+    private ImageView mRightmenu;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initView();
+        //禁止横屏
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         findViewId();
         initData();
         setLinstener();
@@ -97,7 +106,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Activity
     }
 
 
-
     /**
      *添加toolbar
      */
@@ -111,6 +119,13 @@ public abstract class BaseActivity extends AppCompatActivity implements Activity
                 finish();
             }
         });
+        mRightmenu= (ImageView) mToolbar.findViewById(R.id.toolbar_right_menu);
+        mRightmenu.setVisibility(View.GONE);
+    }
+
+    public ImageView getToolbarmenu(){
+        mRightmenu.setVisibility(View.VISIBLE);
+        return mRightmenu;
     }
 
     /**
@@ -171,7 +186,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Activity
 
     /**
      * 检测所有的权限是否都已授权
-     *
      * @param grantResults
      * @return
      */
@@ -239,5 +253,28 @@ public abstract class BaseActivity extends AppCompatActivity implements Activity
     protected abstract void permissionGrantedFail();
 
 
+    public void showProgressDialog(){
+        mDialog= ProgressDialog.show(this,"提示","请稍等...",false);
+    }
+
+    public void dimssDialog(){
+        if (mDialog!=null)
+            mDialog.dismiss();
+    }
+
+    /**
+     * 显示Snackbar
+     * @param view 父布局
+     * @param msg 内容
+     */
+    public void showSnackView(View view,String msg){
+        Snackbar snackbar = Snackbar.make(view, msg, Snackbar.LENGTH_SHORT);
+        ColoredSnackbar.alert(snackbar).show();
+    }
+
+    public View getView(){
+        View rootView=getWindow().getDecorView();
+        return rootView;
+    }
 
 }

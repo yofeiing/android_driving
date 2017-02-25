@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+   <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+       android:id="@+id/add_leave_calendarview"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:visibility="visible"
+        />
+
+
+   <RelativeLayout
+       android:id="@+id/input_time_layout"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:visibility="visible"
+       android:layout_marginBottom="10dp">
+      <TextView
+          android:id="@+id/input_time_submit"
+          android:layout_width="wrap_content"
+          android:layout_height="30dp"
+          android:text="确定"
+          android:textColor="@color/colorAccent"
+          android:layout_alignParentRight="true"
+          android:layout_marginRight="20dp"/>
+      <TextView
+          android:id="@+id/input_time_cancle"
+          android:layout_width="wrap_content"
+          android:layout_height="30dp"
+          android:text="取消"
+          android:layout_toLeftOf="@id/input_time_submit"
+          android:layout_marginRight="30dp"/>
+   </RelativeLayout>
+
+</LinearLayout>

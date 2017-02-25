@@ -7,13 +7,16 @@ import com.yoflying.drivingschool.base.BaseActivity;
 import com.yoflying.drivingschool.modules.wecome.IWecomeView;
 import com.yoflying.drivingschool.modules.wecome.WecomePresenter;
 
+/**
+ * 欢迎页面
+ */
 public class WecomActivity extends BaseActivity implements IWecomeView{
     private WecomePresenter mPresenter;
 
 
     @Override
     protected void initView() {
-        setContentView(R.layout.activity_wecome);
+       // setContentView(R.layout.activity_wecome);
     }
 
     @Override

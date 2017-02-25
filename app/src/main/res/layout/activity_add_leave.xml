@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+    <include layout="@layout/toolbar_layout"></include>
+
+
+
+    <TextView
+        android:id="@+id/add_leave_teacher_name_et"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:background="@drawable/input_edit_text_bg"
+       android:layout_marginLeft="50dp"
+        android:layout_marginTop="30dp"
+        android:text="教练名"
+        android:textColor="@color/search_hint_color"
+
+         />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        >
+        <TextView
+            android:id="@+id/add_leave_start_time"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="@drawable/input_edit_text_bg"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="开始时间"
+
+
+            android:textColor="@color/search_hint_color"
+            />
+        <RadioGroup
+            android:id="@+id/add_leave_start_time_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/add_leave_start_time">
+            <RadioButton
+                android:id="@+id/add_leave_start_time_morning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上午"
+                android:enabled="true"/>
+            <RadioButton
+                android:id="@+id/add_leave_start_time_afternoon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="下午"/>
+        </RadioGroup>
+    </RelativeLayout>
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        >
+    <TextView
+        android:id="@+id/add_leave_end_time"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:background="@drawable/input_edit_text_bg"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="结束时间"
+        android:gravity="left|center"
+        android:textColor="@color/search_hint_color"
+
+        />
+        <RadioGroup
+            android:id="@+id/add_leave_end_time_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/add_leave_end_time">
+            <RadioButton
+                android:id="@+id/add_leave_end_time_morning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上午"
+                android:enabled="true"/>
+            <RadioButton
+                android:id="@+id/add_leave_end_time_afternoon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="下午"/>
+        </RadioGroup>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/add_leave_submit_btn"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:background="@drawable/submit_btn_bg"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:gravity="center"
+
+        />
+
+</LinearLayout>

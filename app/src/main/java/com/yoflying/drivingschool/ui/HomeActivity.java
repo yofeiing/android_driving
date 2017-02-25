@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.yoflying.drivingschool.DriverApplication;
 import com.yoflying.drivingschool.R;
-import com.yoflying.drivingschool.admin.ui.SearchActivity;
+import com.yoflying.drivingschool.admin.search.SearchActivity;
 import com.yoflying.drivingschool.base.BaseActivity;
 import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.admin.ui.AdminFragment;
@@ -27,7 +27,7 @@ import com.yoflying.drivingschool.teacher.TeacherFragment;
 import com.yoflying.drivingschool.utils.UtilSharedPreferences;
 
 /**
- * 管理员主界面
+ * 程序主页，根据用户类型去显示不同的fragment
  */
 public class HomeActivity extends BaseActivity  implements NavigationView.OnNavigationItemSelectedListener,IHomeView ,View.OnClickListener{
     private android.support.v7.widget.Toolbar mToolbar;
@@ -43,6 +43,7 @@ public class HomeActivity extends BaseActivity  implements NavigationView.OnNavi
     private TeacherFragment mTeacherFragment;
     private StudentFragment mStudentFragment;
     private ImageView mSearchImg;
+    private DriverApplication mApplication;
 
     public void initView() {
         setContentView(R.layout.activity_admin);
@@ -75,15 +76,12 @@ public class HomeActivity extends BaseActivity  implements NavigationView.OnNavi
 
     @Override
     public void onBackPressed() {
-
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }
     }
-
-
 
     @Override
     protected String[] getNeedPermissions() {
@@ -122,11 +120,7 @@ public class HomeActivity extends BaseActivity  implements NavigationView.OnNavi
             case R.id.nav_seeting:
                 break;
             case R.id.nav_exit_user:
-                //清除当前用户的token，并跳转到登录页面
-                UtilSharedPreferences.saveStringData(DriverApplication.getContextObject(),Config.KEY_TOKEN,"");
-                Intent toLogin=new Intent(HomeActivity.this,LoginActivity.class);
-                startActivity(toLogin);
-                finish();
+                toLoginActivity();
                 break;
         }
         return true;
@@ -134,7 +128,6 @@ public class HomeActivity extends BaseActivity  implements NavigationView.OnNavi
 
     @Override
     public void showUserName(String name) {
-
         mUserNametv.setText(name);
     }
 
@@ -171,10 +164,35 @@ public class HomeActivity extends BaseActivity  implements NavigationView.OnNavi
     }
 
     @Override
+    public void toLogin() {
+        toLoginActivity();
+    }
+
+    @Override
+    public void showSnackView(String msg) {
+        showSnackView(getView(),msg);
+    }
+
+    private void toLoginActivity(){
+        //清除当前用户的token，并跳转到登录页面
+        UtilSharedPreferences.saveStringData(DriverApplication.getContextObject(),Config.KEY_TOKEN,"");
+        Intent toLogin=new Intent(HomeActivity.this,LoginActivity.class);
+        startActivity(toLogin);
+        finish();
+    }
+
+    @Override
     public void onClick(View v) {
         if (v ==mSearchImg){
             Intent intent=new Intent(this, SearchActivity.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.fade,R.anim.hold);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
     }
 }

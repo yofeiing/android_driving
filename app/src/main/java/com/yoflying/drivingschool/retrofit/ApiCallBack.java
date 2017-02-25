@@ -28,7 +28,7 @@ public abstract class ApiCallBack<M> extends Subscriber<M> {
             onFailure(msg);
             switch (code){
                 case 401:
-
+                    onFailure("401");
                     break;
             }
         } else {

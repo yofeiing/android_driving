@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.yoflying.drivingschool.admin.ui.SearchActivity">
+    tools:context="com.yoflying.drivingschool.admin.search.SearchActivity">
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="?attr/actionBarSize"
@@ -39,14 +39,52 @@
            android:background="@null"
            />
    </LinearLayout>
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/search_teacher_layout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="搜一搜教练"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/color_cardview">
+
+            </View>
+            <LinearLayout
+                android:id="@+id/search_student_layout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="搜一搜学员"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="30dp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/search_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/search_result_rlv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
         </android.support.v7.widget.RecyclerView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+        </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>

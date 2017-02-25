@@ -11,4 +11,7 @@ public interface IHomeView {
     void showAdminFragment();
     void showTeacherFragment();
     void showStudentFragment();
+
+    void toLogin();
+    void showSnackView(String msg);
 }

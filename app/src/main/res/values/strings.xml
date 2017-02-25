@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DrivingSchool</string>
+    <string name="app_name">柚飞约车</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">身份证号码</string>
@@ -30,4 +30,16 @@
 
     <string name="item_manage_student_bind_ok">已绑定</string>
     <string name="item_manage_teacher_bind_no">未绑定</string>
+    <string name="item_today_course_end">结束</string>
+    <string name="item_today_course_img">进行中</string>
+    <string name="item_today_course_no">未开始</string>
+
+    <string name="item_status_leave_ing">请假中</string>
+    <string name="item_status_leave_end">结束</string>
+    <string name="item_status_leave_no_start">未开始</string>
+    <string name="item_footview_no_more_data">没有更多数据了</string>
+
+    <string name="admin_today_no_course">今日无课程安排</string>
+
+    <string name="auto_choise_time_title">手动选择</string>
 </resources>

@@ -26,7 +26,7 @@ import rx.android.BuildConfig;
 
 public class RetrofitClient {
     public static Retrofit mRetrofit;
-    private static final int DEFAULT_TIMEOUT = 5;
+    private static final int DEFAULT_TIMEOUT = 8;
 
 
     public static Retrofit retrofit(final String token) {

@@ -1,7 +1,14 @@
 package com.yoflying.drivingschool.base;
 
+import android.content.Intent;
+import android.util.Log;
+
+import com.yoflying.drivingschool.DriverApplication;
+import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.retrofit.ApiStore;
 import com.yoflying.drivingschool.retrofit.RetrofitClient;
+import com.yoflying.drivingschool.ui.LoginActivity;
+import com.yoflying.drivingschool.utils.UtilSharedPreferences;
 
 
 import rx.Observable;
@@ -21,10 +28,13 @@ public class BasePresenter<V> {
     public V mvpView;
     protected ApiStore mApiStore;
     private CompositeSubscription mCompositeSubscription;
+    private String mToken;
 
     public void attachView(V mvpView){
         this.mvpView=mvpView;
-        mApiStore = RetrofitClient.retrofit().create(ApiStore.class);
+        mToken= UtilSharedPreferences.getStringData(DriverApplication.getContextObject(), Config.KEY_TOKEN);
+
+        mApiStore = RetrofitClient.retrofit(mToken).create(ApiStore.class);
 
     }
 
@@ -53,4 +63,10 @@ public class BasePresenter<V> {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber));
     }
+
+    public void closeRetrofit(){
+        RetrofitClient.close();
+    }
+
+
 }

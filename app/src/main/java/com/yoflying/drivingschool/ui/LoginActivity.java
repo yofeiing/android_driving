@@ -39,6 +39,13 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
     protected void initView() {
         setContentView(R.layout.activity_login);
 
+        addToolbar();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+    }
+
+    @Override
+    protected void findViewId() {
+        super.findViewId();
         mLoginLayout=findView(R.id.longin_layout);
         mUserName=findView(R.id.login_username);
         mPassword=findView(R.id.login_password);
@@ -48,9 +55,8 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
         mStudent=findView(R.id.login_student);
         mSingIn=findView(R.id.login_sing_in);
 
-        addToolbar();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
+
 
 
     @Override

@@ -1,8 +1,10 @@
 package com.yoflying.drivingschool.retrofit;
 
-import com.yoflying.drivingschool.bean.Admin;
-import com.yoflying.drivingschool.bean.HttpsResult;
-import com.yoflying.drivingschool.bean.Person;
+import com.yoflying.drivingschool.entity.Admin;
+import com.yoflying.drivingschool.entity.HttpsResult;
+import com.yoflying.drivingschool.entity.LeaveInfo;
+import com.yoflying.drivingschool.entity.Person;
+import com.yoflying.drivingschool.entity.TodayCourse;
 import com.yoflying.drivingschool.student.bean.OrderInfo;
 
 import java.util.List;
@@ -21,8 +23,9 @@ import rx.Observable;
  */
 
 public interface ApiStore {
-    String BASE_URL="http://waddwaw.vicp.cc:14858/";
+      // String BASE_URL="http://waddwaw.vicp.cc:14858/";
    // String BASE_URL="http://192.168.0.103:8080/";
+     String BASE_URL="http://120.27.33.15:8080/";
 
     @POST("restful/loginPost")
     Observable<HttpsResult<Person>> login(@Body RequestBody body);
@@ -76,4 +79,44 @@ public interface ApiStore {
      */
     @GET("manage/searchCoachStList")
     Observable<HttpsResult<List<Person>>> searchPerson(@QueryMap Map<String,String> map);
+
+    /**
+     * 学员绑定教练
+     * @param body
+     * @return
+     */
+    @POST("manage/bindCSCUpdate")
+    Observable<HttpsResult> bindTeacher(@Body RequestBody body);
+
+    /**
+     * 获取今日课程
+     * @return
+     */
+    @GET("manage/dsAppointrentSt ")
+    Observable<HttpsResult<List<TodayCourse>>> getTodayCourse();
+
+    /**
+     * 添加教练请假
+     * @param body
+     * @return
+     */
+    @POST("manage/createLeave")
+    Observable<HttpsResult> addLeave(@Body RequestBody body);
+
+    /**
+     * 获取历史请假列表
+     * @param map
+     * @return
+     */
+    @GET("manage/coachLeaveList")
+    Observable<HttpsResult<List<LeaveInfo>>> getLeaveList(@QueryMap  Map<String,String> map);
+
+    /**
+     * 手动预约配置
+     * @param body
+     * @return
+     */
+    @POST("manage/postAppointment")
+    Observable<HttpsResult>  sendCouresConfig(@Body RequestBody body);
+
 }

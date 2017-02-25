@@ -29,4 +29,16 @@ public class Config {
     public static final String TYPE_STUDENt="2";
 
     public static final String PARAMS_PAGE_NUM="pageNum";
+
+    public static final String DB_NAME="driving.db";
+    public static final int DB_VERSION=1;
+
+    public static final String TAG_FRAGMENT_START_TIME="InPutStartTime";
+    public static final String TAG_FRAGMENT_END_TIME="InPutEndTime";
+
+    public static final String KEY_STUDENT_NAME="key_student_name";
+    public static final String KEY_STUDENT_ID="key_student_id";
+
+    public static final int TAPY_START_TIME=1;
+    public static final int TAPY_END_TIME=2;
 }

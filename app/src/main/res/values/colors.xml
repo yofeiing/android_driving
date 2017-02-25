@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">@android:color/holo_blue_bright</color>
     <color name="colorPrimaryDark">@android:color/holo_blue_bright</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">@android:color/holo_orange_dark</color>
     <color name="white">#ffffff</color>
 
     <color name="content_bg_color">#dfdfdf</color>
@@ -18,4 +18,11 @@
 
     <color name="item_bind_ok_color">@android:color/holo_blue_bright</color>
     <color name="item_bing_no_color">#e73d0e</color>
+
+    <color name="item_today_course_end_color">#f43308</color>
+    <color name="item_today_course_img_color">@android:color/holo_blue_bright</color>
+    <color name="item_today_course_no_color">#76da2f</color>
+    <color name="color_black">#000000</color>
+
+    <color name="color_cardview">#bab9b9</color>
 </resources>

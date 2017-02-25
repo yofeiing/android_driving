@@ -8,4 +8,5 @@ public interface BaseView {
     void showDialog();
     void cancelDialog();
     void toastMeassager(String msg);
+
 }

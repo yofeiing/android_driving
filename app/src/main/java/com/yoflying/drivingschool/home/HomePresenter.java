@@ -6,15 +6,15 @@ import android.util.Log;
 import com.yoflying.drivingschool.DriverApplication;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.base.BasePresenter;
-import com.yoflying.drivingschool.bean.Admin;
-import com.yoflying.drivingschool.bean.HttpsResult;
-import com.yoflying.drivingschool.bean.Person;
+import com.yoflying.drivingschool.entity.Admin;
+import com.yoflying.drivingschool.entity.HttpsResult;
+import com.yoflying.drivingschool.entity.Person;
 import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.retrofit.ApiCallBack;
 import com.yoflying.drivingschool.utils.UtilSharedPreferences;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by yaojiulong on 2016/12/28.
@@ -32,14 +32,13 @@ public class HomePresenter extends BasePresenter<IHomeView>{
         switchFragment();
         showSomeInfo();
 
-
     }
 
     private void switchFragment() {
         String userType=UtilSharedPreferences.getStringData(DriverApplication.getContextObject(),Config.KEY_USER_TYPE);
         if (userType.equals(DriverApplication.getContextObject().getResources().getString(R.string.user_admin))){
             mHomeView.showAdminFragment();
-            getAdminInfoFromServer(mToken);
+            getAdminInfoFromServer();
         }else if (userType.equals(DriverApplication.getContextObject().getResources().getString(R.string.user_teacher))){
             mHomeView.showTeacherFragment();
             getUserInfoFromServer(mToken);
@@ -90,9 +89,9 @@ public class HomePresenter extends BasePresenter<IHomeView>{
 
     /**
      * 获取管理员信息
-     * @param token
+     * @param
      */
-    private void getAdminInfoFromServer(String token){
+    private void getAdminInfoFromServer(){
         ApiCallBack<HttpsResult<Admin>> subscriber=new ApiCallBack<HttpsResult<Admin>>() {
             @Override
             public void onSuccess(HttpsResult<Admin> model) {
@@ -103,7 +102,13 @@ public class HomePresenter extends BasePresenter<IHomeView>{
 
             @Override
             public void onFailure(String msg) {
-                Log.e("dandy","获取管理员信息失败 "+msg);
+
+                if (msg.equals("401")){
+                    mvpView.showSnackView("用户账号过期，请重新登录");
+                    delayToLogin();
+                }else {
+
+                }
             }
 
             @Override
@@ -113,6 +118,20 @@ public class HomePresenter extends BasePresenter<IHomeView>{
         };
         addSubscription(mApiStore.getAdminInfo(),subscriber);
 
+    }
+
+    private void delayToLogin(){
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                /**
+                 *要执行的操作
+                 */
+                mvpView.toLogin();
+            }
+        };
+        Timer timer = new Timer();
+        timer.schedule(task, 3000);//3秒后执行TimeTask的run方法
     }
 
 }
