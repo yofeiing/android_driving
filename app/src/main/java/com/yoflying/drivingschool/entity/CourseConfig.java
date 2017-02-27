@@ -23,74 +23,13 @@ public class CourseConfig {
 
     private int studentsIds;
 
-    private AppointmentDate appointmentDate;
+    private String appointmentDate;
 
     private int status;
 
-    public static class AppointmentDate{
 
-        /**
-         * 人数
-         */
-        private int size;
-        private CourseConfig.AppointmentDate.time time;
 
-        /**
-         * 时间
-         */
-        public static class time{
-            private String stop;
-            private String start;
 
-            public String getStop() {
-                return stop;
-            }
-
-            public void setStop(String stop) {
-                this.stop = stop;
-            }
-
-            public String getStart() {
-                return start;
-            }
-
-            public void setStart(String start) {
-                this.start = start;
-            }
-
-            @Override
-            public String toString() {
-                return "time{" +
-                        "stop='" + stop + '\'' +
-                        ", start='" + start + '\'' +
-                        '}';
-            }
-        }
-
-        public int getSize() {
-            return size;
-        }
-
-        public void setSize(int size) {
-            this.size = size;
-        }
-
-        public CourseConfig.AppointmentDate.time getTime() {
-            return time;
-        }
-
-        public void setTime(CourseConfig.AppointmentDate.time time) {
-            this.time = time;
-        }
-
-        @Override
-        public String toString() {
-            return "AppointmentDate{" +
-                    "size=" + size +
-                    ", time=" + time +
-                    '}';
-        }
-    }
 
     public int getCoachId() {
         return coachId;
@@ -124,11 +63,11 @@ public class CourseConfig {
         this.studentsIds = studentsIds;
     }
 
-    public AppointmentDate getAppointmentDate() {
+    public String getAppointmentDate() {
         return appointmentDate;
     }
 
-    public void setAppointmentDate(AppointmentDate appointmentDate) {
+    public void setAppointmentDate(String appointmentDate) {
         this.appointmentDate = appointmentDate;
     }
 

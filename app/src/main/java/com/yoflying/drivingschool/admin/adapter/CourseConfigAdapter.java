@@ -19,11 +19,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.google.gson.Gson;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.admin.select.SelectTeacherFragment;
 import com.yoflying.drivingschool.base.BaseActivity;
 import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.entity.CourseConfig;
+import com.yoflying.drivingschool.entity.CourseTimeBean;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -46,14 +48,16 @@ public class CourseConfigAdapter  extends RecyclerView.Adapter<CourseConfigAdapt
     private SelectTeacherFragment mSelectFragment;
     private BaseActivity mActivity;
     private List<String> mTeacherNames;
+    private Gson gson;
 
     public CourseConfigAdapter(BaseActivity activity, List<CourseConfig> mCourseconfigs,List<String> teachernames ) {
-      //  this.mContext = mContext;
+        //  this.mContext = mContext;
         this.mCourseconfigs = mCourseconfigs;
 
         this.mActivity=activity;
         this.mTeacherNames=teachernames;
         mListener= (GetItemSomeInfo) mActivity;
+        gson=new Gson();
     }
 
     public interface GetItemSomeInfo{
@@ -73,8 +77,15 @@ public class CourseConfigAdapter  extends RecyclerView.Adapter<CourseConfigAdapt
 
     @Override
     public void onBindViewHolder(CourseHolder holder, final int position) {
-        holder.mStartTime.setText(mCourseconfigs.get(position).getAppointmentDate().getTime().getStart());
-        holder.mEndTime.setText(mCourseconfigs.get(position).getAppointmentDate().getTime().getStop());
+
+        if (gson==null){
+            gson=new Gson();
+        }
+        CourseTimeBean bean=gson.fromJson(mCourseconfigs.get(position).getAppointmentDate(),CourseTimeBean.class);
+        Log.e("dandy","适配器 "+mCourseconfigs.get(position).toString());
+        holder.mStartTime.setText(bean.getTime().getStart());
+        holder.mEndTime.setText(bean.getTime().getStop());
+        holder.mNum.setText(String.valueOf(bean.getSize()));
         holder.mNum.addTextChangedListener(new TextSwitcher(holder));
         holder.mNum.setTag(position);
         holder.mTeacher.setText(mTeacherNames.get(position));
