@@ -8,7 +8,7 @@
     tools:context="com.yoflying.drivingschool.ui.HomeActivity"
     tools:openDrawer="start">
 
-    <include layout="@layout/app_bar_draw"></include>
+    <include layout="@layout/app_bar_draw"/>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"

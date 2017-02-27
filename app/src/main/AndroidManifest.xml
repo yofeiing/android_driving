@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.WecomActivity"
+            android:name=".ui.WelcomeActivity"
             android:label="@string/app_name"
             android:theme="@style/ThemeSplash">
             <intent-filter>

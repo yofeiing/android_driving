@@ -1,22 +1,21 @@
-package com.yoflying.drivingschool.modules.wecome;
+package com.yoflying.drivingschool.modules.welcome;
 
 import android.os.Handler;
 
 import com.yoflying.drivingschool.DriverApplication;
 import com.yoflying.drivingschool.base.BasePresenter;
 import com.yoflying.drivingschool.config.Config;
-import com.yoflying.drivingschool.modules.wecome.IWecomeView;
 import com.yoflying.drivingschool.utils.UtilSharedPreferences;
 
 /**
  * Created by yaojiulong on 2016/12/26.
  */
 
-public class WecomePresenter extends BasePresenter<IWecomeView> {
-    private IWecomeView mWecomeView;
+public class WelcomePresenter extends BasePresenter<IWelcomeView> {
+    private IWelcomeView mWecomeView;
     private boolean mIsNew=true;
 
-    public WecomePresenter(IWecomeView wecomeView) {
+    public WelcomePresenter(IWelcomeView wecomeView) {
         this.mWecomeView=wecomeView;
     }
 

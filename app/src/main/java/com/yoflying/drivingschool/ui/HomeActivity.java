@@ -29,12 +29,12 @@ import com.yoflying.drivingschool.utils.UtilSharedPreferences;
 /**
  * 程序主页，根据用户类型去显示不同的fragment
  */
-public class HomeActivity extends BaseActivity  implements NavigationView.OnNavigationItemSelectedListener,IHomeView ,View.OnClickListener{
+public class HomeActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, IHomeView, View.OnClickListener {
     private android.support.v7.widget.Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
     private ActionBarDrawerToggle mDrawerToggle;
-    private TextView mUserTypetv,mUserNametv;
+    private TextView mUserTypetv, mUserNametv;
     private HomePresenter mPresenter;
     private FrameLayout mContentLayout;
     private FragmentManager mManager;
@@ -47,28 +47,28 @@ public class HomeActivity extends BaseActivity  implements NavigationView.OnNavi
 
     public void initView() {
         setContentView(R.layout.activity_admin);
-        mToolbar=findView(R.id.admin_layout_toolbar);
-        mContentLayout=findView(R.id.home_contant_layout);
-        mDrawerLayout=findView(R.id.content_layout);
-        mNavigationView=findView(R.id.nav_view);
+        mToolbar = findView(R.id.admin_layout_toolbar);
+        mContentLayout = findView(R.id.home_contant_layout);
+        mDrawerLayout = findView(R.id.content_layout);
+        mNavigationView = findView(R.id.nav_view);
         View view = mNavigationView.inflateHeaderView(R.layout.nav_header_content);
 
-        mUserTypetv= (TextView) view.findViewById(R.id.nav_header_type_tv);
-        mUserNametv= (TextView) view.findViewById(R.id.nav_header_username);
-        mSearchImg=findView(R.id.search_img);
+        mUserTypetv = (TextView) view.findViewById(R.id.nav_header_type_tv);
+        mUserNametv = (TextView) view.findViewById(R.id.nav_header_username);
+        mSearchImg = findView(R.id.search_img);
         mToolbar.setTitle("Driver");
         mToolbar.setTitleTextColor(Color.parseColor("#ffffff")); //设置标题颜色
         setSupportActionBar(mToolbar);
         getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mDrawerToggle=new ActionBarDrawerToggle
-                (this,mDrawerLayout,mToolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        mDrawerToggle = new ActionBarDrawerToggle
+                (this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawerToggle.syncState();
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mNavigationView.setNavigationItemSelectedListener(this);
-        mManager=getSupportFragmentManager();
-        mTransaction=mManager.beginTransaction();
-        mPresenter=new HomePresenter(this);
+        mManager = getSupportFragmentManager();
+        mTransaction = mManager.beginTransaction();
+        mPresenter = new HomePresenter(this);
         mSearchImg.setOnClickListener(this);
 
 
@@ -100,8 +100,8 @@ public class HomeActivity extends BaseActivity  implements NavigationView.OnNavi
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int id=item.getItemId();
-        switch (id){
+        int id = item.getItemId();
+        switch (id) {
             //驾校信息
             case R.id.nav_shcool_info:
 
@@ -140,16 +140,16 @@ public class HomeActivity extends BaseActivity  implements NavigationView.OnNavi
     @Override
     public void showAdminFragment() {
         mSearchImg.setVisibility(View.VISIBLE);
-        mAdminFragment=new AdminFragment();
-        mTransaction.replace(R.id.home_contant_layout,mAdminFragment);
+        mAdminFragment = new AdminFragment();
+        mTransaction.replace(R.id.home_contant_layout, mAdminFragment);
         mTransaction.commit();
     }
 
     @Override
     public void showTeacherFragment() {
         mSearchImg.setVisibility(View.GONE);
-        mTeacherFragment=new TeacherFragment();
-        mTransaction.replace(R.id.home_contant_layout,mTeacherFragment);
+        mTeacherFragment = new TeacherFragment();
+        mTransaction.replace(R.id.home_contant_layout, mTeacherFragment);
         mTransaction.commit();
 
     }
@@ -157,8 +157,8 @@ public class HomeActivity extends BaseActivity  implements NavigationView.OnNavi
     @Override
     public void showStudentFragment() {
         mSearchImg.setVisibility(View.GONE);
-        mStudentFragment=new StudentFragment();
-        mTransaction.replace(R.id.home_contant_layout,mStudentFragment);
+        mStudentFragment = new StudentFragment();
+        mTransaction.replace(R.id.home_contant_layout, mStudentFragment);
         mTransaction.commit();
 
     }
@@ -170,13 +170,13 @@ public class HomeActivity extends BaseActivity  implements NavigationView.OnNavi
 
     @Override
     public void showSnackView(String msg) {
-        showSnackView(getView(),msg);
+        showSnackView(getView(), msg);
     }
 
-    private void toLoginActivity(){
+    private void toLoginActivity() {
         //清除当前用户的token，并跳转到登录页面
-        UtilSharedPreferences.saveStringData(DriverApplication.getContextObject(),Config.KEY_TOKEN,"");
-        Intent toLogin=new Intent(HomeActivity.this,LoginActivity.class);
+        UtilSharedPreferences.saveStringData(DriverApplication.getContextObject(), Config.KEY_TOKEN, "");
+        Intent toLogin = new Intent(HomeActivity.this, LoginActivity.class);
         startActivity(toLogin);
         finish();
     }
@@ -184,9 +184,9 @@ public class HomeActivity extends BaseActivity  implements NavigationView.OnNavi
     @Override
     public void onClick(View v) {
         if (v ==mSearchImg){
-            Intent intent=new Intent(this, SearchActivity.class);
+            Intent intent = new Intent(this, SearchActivity.class);
             startActivity(intent);
-            overridePendingTransition(R.anim.fade,R.anim.hold);
+            overridePendingTransition(R.anim.fade, R.anim.hold);
         }
     }
 

@@ -6,6 +6,6 @@
     android:layout_height="match_parent"
 
     android:background="@drawable/wecome_bg"
-    tools:context="com.yoflying.drivingschool.ui.WecomActivity">
+    tools:context="com.yoflying.drivingschool.ui.WelcomeActivity">
 
 </RelativeLayout>
