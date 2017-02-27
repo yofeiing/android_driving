@@ -39,8 +39,8 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
     protected void initView() {
         setContentView(R.layout.activity_login);
 
-        addToolbar();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+//        addToolbar();
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 
     @Override

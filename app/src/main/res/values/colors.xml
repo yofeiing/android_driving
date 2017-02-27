@@ -23,6 +23,10 @@
     <color name="item_today_course_img_color">@android:color/holo_blue_bright</color>
     <color name="item_today_course_no_color">#76da2f</color>
     <color name="color_black">#000000</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_gray">#dbdbdb</color>
+
+
 
     <color name="color_cardview">#bab9b9</color>
 </resources>

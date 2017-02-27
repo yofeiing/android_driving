@@ -6,9 +6,10 @@
     android:orientation="vertical"
     android:id="@+id/longin_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_get_start"
     tools:context="com.yoflying.drivingschool.ui.LoginActivity">
 
-    <include layout="@layout/toolbar_layout"/>
+    <!--<include layout="@layout/toolbar_layout"/>-->
 
     <ScrollView
         android:id="@+id/login_form"
@@ -16,23 +17,35 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:layout_gravity="center"
             android:id="@+id/email_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <ImageView
+                android:background="@drawable/ic_head_photo_default"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
             <android.support.design.widget.TextInputLayout
+                android:layout_marginBottom="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <AutoCompleteTextView
+                    android:textColorHint="@color/color_gray"
+                    android:background="@drawable/login_edt_shape"
+                    android:layout_marginLeft="@dimen/loging_margingleftandright"
+                    android:layout_marginRight="@dimen/loging_margingleftandright"
                     android:id="@+id/login_username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -41,6 +54,11 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:textColorHint="@color/color_gray"
+                    android:background="@drawable/login_edt_shape"
+                    android:layout_marginLeft="@dimen/loging_margingleftandright"
+                    android:layout_marginRight="@dimen/loging_margingleftandright"
+                    android:layout_marginBottom="@dimen/loging_margingleftandright"
                     android:id="@+id/login_password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -50,25 +68,29 @@
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                     />
 
             </android.support.design.widget.TextInputLayout>
             <RadioGroup
+                android:layout_marginLeft="@dimen/loging_margingleftandright"
                 android:id="@+id/login_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <RadioButton
+                    android:textColor="@color/color_white"
                     android:id="@+id/login_admin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/user_admin"/>
                 <RadioButton
+                    android:textColor="@color/color_white"
                     android:id="@+id/login_teacher"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/user_teacher"/>
                 <RadioButton
+                    android:textColor="@color/color_white"
                     android:id="@+id/login_student"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,13 +98,15 @@
             </RadioGroup>
 
             <Button
+                android:layout_margin="@dimen/loging_margingleftandright"
                 android:id="@+id/login_sing_in"
-                style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/color_white"
+                android:background="@drawable/login_btn_shape"
                 android:text="@string/action_sing_in_btn"
-                android:textStyle="bold" />
+               />
 
         </LinearLayout>
     </ScrollView>
