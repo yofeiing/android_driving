@@ -82,9 +82,9 @@ public class CourseConfigAdapter  extends RecyclerView.Adapter<CourseConfigAdapt
             gson=new Gson();
         }
         CourseTimeBean bean=gson.fromJson(mCourseconfigs.get(position).getAppointmentDate(),CourseTimeBean.class);
-        Log.e("dandy","适配器 "+mCourseconfigs.get(position).toString());
-        holder.mStartTime.setText(bean.getTime().getStart());
-        holder.mEndTime.setText(bean.getTime().getStop());
+       // Log.e("dandy","适配器 "+mCourseconfigs.get(position).toString());
+        holder.mStartTime.setText(getTime(bean.getTime().getStart()));
+        holder.mEndTime.setText(getTime(bean.getTime().getStop()));
         holder.mNum.setText(String.valueOf(bean.getSize()));
         holder.mNum.addTextChangedListener(new TextSwitcher(holder));
         holder.mNum.setTag(position);
@@ -129,6 +129,21 @@ public class CourseConfigAdapter  extends RecyclerView.Adapter<CourseConfigAdapt
 
 
     }
+
+    /**
+     * 字符串截取，只获取后面的时间
+     * @param str
+     * @return
+     */
+    private String getTime(String str){
+
+        String a[] = str.split(" ");
+      // Log.e("dandy","截取出来的时间 "+a[1]);
+
+        return a[1];
+
+    }
+
 
     @Override
     public int getItemCount() {

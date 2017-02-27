@@ -1,10 +1,12 @@
 package com.yoflying.drivingschool.entity;
 
+import java.io.Serializable;
+
 /**单个课程预约配置信息
  * Created by yaojiulong on 2017/2/22.
  */
 
-public class CourseConfig {
+public class CourseConfig implements Serializable{
 
     /**
      * 教练id

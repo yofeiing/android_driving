@@ -41,4 +41,10 @@ public class Config {
 
     public static final int TAPY_START_TIME=1;
     public static final int TAPY_END_TIME=2;
+
+
+    public static final String KEY_BUNDLE_CONFIG="key_bundle_config";
+    public static final String KEY_INTENT_CONFIG="key_intent_config";
+
+    public static final int MANULA_REQUEST_CODE=200;
 }

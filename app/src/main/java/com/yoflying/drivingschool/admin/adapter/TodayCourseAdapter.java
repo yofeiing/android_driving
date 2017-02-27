@@ -40,11 +40,11 @@ public class TodayCourseAdapter extends BaseQuickAdapter<TodayCourse,BaseViewHol
 
 
     private String getTime(String str){
-        String time="";
-        String a[] = str.split(" ");
-        Log.e("dandy","截取出来的时间 "+a[1]);
 
-        return time;
+        String a[] = str.split(" ");
+        //Log.e("dandy","截取出来的时间 "+a[1]);
+
+        return a[1];
 
     }
 }

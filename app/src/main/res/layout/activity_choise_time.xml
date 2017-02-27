@@ -18,7 +18,7 @@
             android:id="@+id/choie_time_date_tv"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="2017-02-22"
+            android:text=""
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
             />
@@ -26,7 +26,9 @@
             android:id="@+id/choise_time_add_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icon_add_gray"/>
+            android:src="@drawable/icon_add_gray"
+            android:text="修改"
+            android:layout_gravity="center"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
