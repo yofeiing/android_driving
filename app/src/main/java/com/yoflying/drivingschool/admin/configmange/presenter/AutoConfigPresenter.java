@@ -1,6 +1,6 @@
 package com.yoflying.drivingschool.admin.configmange.presenter;
 
-import com.yoflying.drivingschool.admin.configmange.Iview.IAutoConfigView;
+import com.yoflying.drivingschool.admin.configmange.IView.IAutoConfigView;
 import com.yoflying.drivingschool.base.BasePresenter;
 
 /**手动预约配置控制器

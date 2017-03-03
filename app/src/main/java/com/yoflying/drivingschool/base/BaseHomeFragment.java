@@ -34,9 +34,8 @@ public class BaseHomeFragment extends BaseFragment {
 
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container) {
-        View view=inflater.inflate(R.layout.fragment_base,container,false);
 
-        return view;
+        return inflater.inflate(R.layout.fragment_base,container,false);
     }
 
 

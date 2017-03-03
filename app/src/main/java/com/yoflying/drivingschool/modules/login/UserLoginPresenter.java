@@ -11,6 +11,7 @@ import com.yoflying.drivingschool.entity.Person;
 import com.yoflying.drivingschool.entity.User;
 import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.retrofit.ApiCallBack;
+import com.yoflying.drivingschool.utils.LogUtil;
 import com.yoflying.drivingschool.utils.UtilSharedPreferences;
 
 import okhttp3.RequestBody;
@@ -50,6 +51,7 @@ public class UserLoginPresenter extends BasePresenter<IUserLoginView>{
                 if (model.getStatus()==0){
                     closeRetrofit();
                     mUserLoginView.toMainActivity();
+                    LogUtil.d(this,model.toString());
                     savaUserToken(model);
                 }else {
                     mUserLoginView.toastMeassager(model.getMessage());

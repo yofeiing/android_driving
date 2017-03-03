@@ -1,7 +1,7 @@
 package com.yoflying.drivingschool.admin.configmange.presenter;
 
-import com.yoflying.drivingschool.admin.configmange.Iview.IChoiseTimeView;
 import com.yoflying.drivingschool.base.BasePresenter;
+import com.yoflying.drivingschool.admin.configmange.IView.IChoiseTimeView;
 import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.entity.HttpsResult;
 import com.yoflying.drivingschool.entity.Person;

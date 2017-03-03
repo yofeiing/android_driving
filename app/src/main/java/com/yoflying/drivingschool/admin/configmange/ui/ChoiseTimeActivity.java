@@ -7,20 +7,18 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.ArrayMap;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.yoflying.drivingschool.DriverApplication;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.admin.Inputtime.InputTimeFragment;
 import com.yoflying.drivingschool.admin.Inputtime.InputTimeListener;
 import com.yoflying.drivingschool.admin.adapter.CourseConfigAdapter;
-import com.yoflying.drivingschool.admin.configmange.Iview.IChoiseTimeView;
+import com.yoflying.drivingschool.admin.configmange.IView.IChoiseTimeView;
 import com.yoflying.drivingschool.admin.configmange.presenter.ChoiseTimePresenter;
 import com.yoflying.drivingschool.admin.select.SelectTeacherFragment;
 import com.yoflying.drivingschool.base.BaseActivity;
@@ -28,9 +26,6 @@ import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.entity.CourseConfig;
 import com.yoflying.drivingschool.entity.CourseTimeBean;
 import com.yoflying.drivingschool.entity.Person;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;

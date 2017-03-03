@@ -62,7 +62,6 @@ public class RetrofitClient {
                     //配置Gson
                     .setDateFormat("yyyy-MM-dd hh:mm:ss")
                     .create();
-
             OkHttpClient okHttpClient = httpClientBuilder.build();
             mRetrofit=new Retrofit.Builder()
                     .baseUrl(ApiStore.BASE_URL)

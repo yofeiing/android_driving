@@ -3,7 +3,7 @@ package com.yoflying.drivingschool.admin.configmange.presenter;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.yoflying.drivingschool.admin.configmange.Iview.IMaualConfigView;
+import com.yoflying.drivingschool.admin.configmange.IView.IMaualConfigView;
 import com.yoflying.drivingschool.base.BasePresenter;
 import com.yoflying.drivingschool.entity.CourseConfig;
 import com.yoflying.drivingschool.entity.HttpsResult;

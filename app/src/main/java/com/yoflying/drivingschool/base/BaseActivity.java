@@ -278,8 +278,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Activity
     }
 
     public View getView(){
-        View rootView=getWindow().getDecorView();
-        return rootView;
+        return getWindow().getDecorView();
     }
 
 }

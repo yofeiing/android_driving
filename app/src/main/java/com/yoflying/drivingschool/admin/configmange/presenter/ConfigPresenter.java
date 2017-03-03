@@ -1,6 +1,6 @@
 package com.yoflying.drivingschool.admin.configmange.presenter;
 
-import com.yoflying.drivingschool.admin.configmange.Iview.IConfigManageView;
+import com.yoflying.drivingschool.admin.configmange.IView.IConfigManageView;
 import com.yoflying.drivingschool.base.BasePresenter;
 
 /**

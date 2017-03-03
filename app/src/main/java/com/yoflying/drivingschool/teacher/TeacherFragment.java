@@ -19,7 +19,6 @@ public class TeacherFragment extends BaseFragment {
 
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container) {
-        View view=inflater.inflate(R.layout.fragment_teacher,container);
-        return view;
+        return inflater.inflate(R.layout.fragment_teacher,container);
     }
 }

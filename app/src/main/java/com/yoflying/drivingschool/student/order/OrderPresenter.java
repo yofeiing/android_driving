@@ -23,16 +23,15 @@ public class OrderPresenter extends BasePresenter<IOrderView>{
     public OrderPresenter(IOrderView mOrderView) {
         this.mOrderView = mOrderView;
         attachView(mOrderView);
-
-        getOrderInfo();
-
     }
 
-    private void getOrderInfo(){
+    public void getOrderInfo(){
         ApiCallBack<OrderInfo> subscriber=new ApiCallBack<OrderInfo>() {
             @Override
             public void onSuccess(OrderInfo model) {
-                Log.e("dandy","成功了 "+model.toString());
+//                Log.e("dandy","成功了"+model.toString());
+                mOrderView.getDataSuccess(model);
+
             }
 
             @Override

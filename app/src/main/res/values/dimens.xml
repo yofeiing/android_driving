@@ -7,4 +7,5 @@
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">170dp</dimen>
     <dimen name="loging_margingleftandright">20dp</dimen>
+    <dimen name="order_list_item_img_marginleft">5dp</dimen>
 </resources>

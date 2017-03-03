@@ -4,7 +4,11 @@
     android:layout_height="match_parent"
     android:background="@color/content_bg_color">
 
-    <include layout="@layout/head_order_student_layout"></include>
+    <!--<include layout="@layout/head_order_student_layout"/>-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/order_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 </LinearLayout>

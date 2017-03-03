@@ -21,6 +21,10 @@
     <string name="input_name">   输入名字</string>
     <string name="search_teacher">搜一搜教练</string>
     <string name="search_student">搜一搜学员</string>
+    <string name="order_address">练车地点:</string>
+    <string name="order_start_time">开始时间:</string>
+    <string name="order_end_time">结束时间:</string>
+    <string name="order_num">人数:</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

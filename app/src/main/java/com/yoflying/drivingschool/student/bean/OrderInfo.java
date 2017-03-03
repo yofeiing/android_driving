@@ -191,7 +191,7 @@ public class OrderInfo {
                 ", message='" + message + '\'' +
                 ", pageNum=" + pageNum +
                 ", total=" + total +
-                ", data=" + data +
+                ", data=" + data.toString()+
                 '}';
     }
 }

@@ -18,7 +18,7 @@ import com.yoflying.drivingschool.view.ColoredSnackbar;
  */
 
 public abstract class BaseFragment extends android.support.v4.app.Fragment{
-    private Activity mActivity;
+    protected Activity mActivity;
     private ProgressDialog mDialog;
 
     @Nullable
