@@ -48,7 +48,6 @@ public class RetrofitClient {
                     Request original = chain.request();
 
                     Request request = original.newBuilder()
-                            .header("Content-Type", "application/json")
                             .header("accesstoken",token)
                             .method(original.method(), original.body())
                             .build();
@@ -58,6 +57,7 @@ public class RetrofitClient {
 
 
             httpClientBuilder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
+            httpClientBuilder.writeTimeout(DEFAULT_TIMEOUT,TimeUnit.SECONDS);
             Gson gson = new GsonBuilder()
                     //配置Gson
                     .setDateFormat("yyyy-MM-dd hh:mm:ss")

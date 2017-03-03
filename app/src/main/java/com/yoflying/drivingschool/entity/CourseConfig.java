@@ -23,7 +23,7 @@ public class CourseConfig implements Serializable{
      */
     private String testAddress;
 
-    private int studentsIds;
+    private String studentsIds;
 
     private String appointmentDate;
 
@@ -57,11 +57,11 @@ public class CourseConfig implements Serializable{
         this.testAddress = testAddress;
     }
 
-    public int getStudentsIds() {
+    public String getStudentsIds() {
         return studentsIds;
     }
 
-    public void setStudentsIds(int studentsIds) {
+    public void setStudentsIds(String studentsIds) {
         this.studentsIds = studentsIds;
     }
 

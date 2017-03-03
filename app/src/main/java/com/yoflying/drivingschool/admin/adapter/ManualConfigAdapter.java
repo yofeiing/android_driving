@@ -9,7 +9,7 @@ import com.yoflying.drivingschool.entity.CourseConfig;
 import java.util.List;
 import java.util.Map;
 
-/**
+/**手动预约配置适配器
  * Created by yaojiulong on 2017/2/27.
  */
 

@@ -138,9 +138,8 @@ public class CourseConfigAdapter  extends RecyclerView.Adapter<CourseConfigAdapt
     private String getTime(String str){
 
         String a[] = str.split(" ");
-      // Log.e("dandy","截取出来的时间 "+a[1]);
-
-        return a[1];
+        String r=a[1].toString().substring(0,5);
+        return r;
 
     }
 
@@ -154,7 +153,20 @@ public class CourseConfigAdapter  extends RecyclerView.Adapter<CourseConfigAdapt
         TimePickerDialog dialog=new TimePickerDialog(mActivity, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                String time=String.valueOf(hourOfDay)+":"+String.valueOf(minute);
+                String hour="";
+                String m="";
+                if (hourOfDay < 10){
+                    hour="0"+String.valueOf(hourOfDay);
+                }else {
+                    hour=String.valueOf(hourOfDay);
+                }
+                if (minute < 10){
+                    m="0"+String.valueOf(minute);
+                }else {
+                    m=String.valueOf(minute);
+                }
+
+                String time=hour+":"+String.valueOf(m);
                 switch (type){
                     case Config.TAPY_START_TIME:
                         mListener.getStartTime(postion,time);

@@ -190,8 +190,8 @@ public class ChoiseTimeActivity extends BaseActivity
         CourseTimeBean bean=new CourseTimeBean();
         CourseTimeBean.TimeBean timeBean=new CourseTimeBean.TimeBean();
         bean.setSize(10);
-        timeBean.setStart(mDate.getText().toString()+" "+"09:00");
-        timeBean.setStop(mDate.getText().toString()+" "+"11:00");
+        timeBean.setStart(mDate.getText().toString()+" "+"09:00"+":00");
+        timeBean.setStop(mDate.getText().toString()+" "+"11:00"+":00");
         bean.setTime(timeBean);
         Gson gson=new Gson();
         config.setAppointmentDate(gson.toJson(bean));
@@ -230,7 +230,7 @@ public class ChoiseTimeActivity extends BaseActivity
     @Override
     public void getStartTime(int postion, String time) {
         CourseTimeBean timeBean=mGson.fromJson(mCourses.get(postion).getAppointmentDate(),CourseTimeBean.class);
-        timeBean.getTime().setStart(mDate.getText().toString()+" "+time);
+        timeBean.getTime().setStart(mDate.getText().toString()+" "+time+":00");
         mCourses.get(postion).setAppointmentDate(mGson.toJson(timeBean));
         Log.e("dandy","log "+mCourses.get(postion).toString());
         mAdapter.notifyDataSetChanged();
@@ -241,7 +241,7 @@ public class ChoiseTimeActivity extends BaseActivity
     @Override
     public void getEndTime(int postion, String time) {
         CourseTimeBean timeBean=mGson.fromJson(mCourses.get(postion).getAppointmentDate(),CourseTimeBean.class);
-        timeBean.getTime().setStop(mDate.getText().toString()+" "+time);
+        timeBean.getTime().setStop(mDate.getText().toString()+" "+time+":00");
         mCourses.get(postion).setAppointmentDate(mGson.toJson(timeBean));
         Log.e("dandy","log "+mCourses.get(postion).toString());
         mAdapter.notifyDataSetChanged();

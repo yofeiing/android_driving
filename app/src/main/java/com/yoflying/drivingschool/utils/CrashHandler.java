@@ -49,7 +49,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
             }
             try {
                 FileWriter fw = new FileWriter(logPath + File.separator
-                        + "errorlog.txt", true);
+                        + "yoflying.txt", true);
                 fw.write(new Date() + "\n");
                 // 错误信息
                 // 这里还可以加上当前的系统版本，机型型号 等等信息

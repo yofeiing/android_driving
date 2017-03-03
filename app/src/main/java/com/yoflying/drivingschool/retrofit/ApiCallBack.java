@@ -30,6 +30,8 @@ public abstract class ApiCallBack<M> extends Subscriber<M> {
                 case 401:
                     onFailure("401");
                     break;
+                case  404:
+                    onFailure("服务器异常");
             }
         } else {
             onFailure(e.getMessage());

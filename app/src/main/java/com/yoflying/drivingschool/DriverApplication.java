@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.yoflying.drivingschool.entity.Person;
+import com.yoflying.drivingschool.utils.CrashHandler;
 
 import java.util.List;
 
@@ -18,7 +19,8 @@ public class DriverApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mContext=getApplicationContext();
-
+       /* CrashHandler crashHandler = CrashHandler.getInstance();
+        crashHandler.init(getApplicationContext());*/
     }
     //返回
     public static Context getContextObject(){

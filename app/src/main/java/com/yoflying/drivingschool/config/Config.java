@@ -47,4 +47,7 @@ public class Config {
     public static final String KEY_INTENT_CONFIG="key_intent_config";
 
     public static final int MANULA_REQUEST_CODE=200;
+
+
+    public static final String KEY_COURSE_CONFIG="key_course_config";
 }
