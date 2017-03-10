@@ -73,7 +73,7 @@ public class TodayFragment extends BaseFragment implements ITodayView ,SwipeRefr
     @Override
     public void toastMeassager(String msg) {
         if (getView()!=null){
-            showSnackView(getView(),msg);
+            showSnackView(msg);
         }
 
     }

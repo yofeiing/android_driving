@@ -1,7 +1,8 @@
 package com.yoflying.drivingschool.admin.configmange.presenter;
 
+import com.yoflying.drivingschool.admin.configmange.Iview.IChoiceTimeView;
 import com.yoflying.drivingschool.base.BasePresenter;
-import com.yoflying.drivingschool.admin.configmange.IView.IChoiseTimeView;
+
 import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.entity.HttpsResult;
 import com.yoflying.drivingschool.entity.Person;
@@ -15,10 +16,10 @@ import java.util.Map;
  * Created by yaojiulong on 2017/2/22.
  */
 
-public class ChoiseTimePresenter extends BasePresenter<IChoiseTimeView> {
-    private IChoiseTimeView mChoiseTimeView;
+public class ChoiseTimePresenter extends BasePresenter<IChoiceTimeView> {
+    private IChoiceTimeView mChoiseTimeView;
 
-    public ChoiseTimePresenter(IChoiseTimeView mChoiseTimeView) {
+    public ChoiseTimePresenter(IChoiceTimeView mChoiseTimeView) {
         this.mChoiseTimeView = mChoiseTimeView;
         attachView(mChoiseTimeView);
     }

@@ -1,6 +1,5 @@
 package com.yoflying.drivingschool.admin.select;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,7 +18,7 @@ import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.yoflying.drivingschool.DriverApplication;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.admin.adapter.TeachersManageAdapter;
-import com.yoflying.drivingschool.admin.configmange.ui.ChoiseTimeActivity;
+import com.yoflying.drivingschool.admin.configmange.ui.ChoiceTimeActivity;
 import com.yoflying.drivingschool.entity.Person;
 
 import java.util.List;
@@ -32,7 +31,7 @@ public class SelectTeacherFragment extends DialogFragment {
     private RecyclerView mTeachersView;
     private List<Person> mteachers;
     private Button mCancel,mSubmit;
-    private ChoiseTimeActivity mActivity;
+    private ChoiceTimeActivity mActivity;
     private DriverApplication mApplication;
     private TeachersManageAdapter mAdapter;
     private Integer mPostion;

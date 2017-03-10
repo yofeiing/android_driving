@@ -15,7 +15,7 @@
             android:text="日期"
             android:textSize="20sp"/>
         <TextView
-            android:id="@+id/choie_time_date_tv"
+            android:id="@+id/choice_time_date_tv"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text=""
@@ -23,7 +23,7 @@
             android:layout_marginLeft="20dp"
             />
         <TextView
-            android:id="@+id/choise_time_add_date"
+            android:id="@+id/choice_time_add_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/icon_add_gray"
@@ -91,14 +91,14 @@
         ></View>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/choise_time_list"
+        android:id="@+id/choice_time_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     </android.support.v7.widget.RecyclerView>
 
     <ImageView
-        android:id="@+id/choise_time_add_item"
+        android:id="@+id/choice_time_add_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/icon_add_gray"

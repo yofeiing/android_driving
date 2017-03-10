@@ -49,6 +49,7 @@ public class CourseConfigAdapter  extends RecyclerView.Adapter<CourseConfigAdapt
     private BaseActivity mActivity;
     private List<String> mTeacherNames;
     private Gson gson;
+    private final int TEN=10;
 
     public CourseConfigAdapter(BaseActivity activity, List<CourseConfig> mCourseconfigs,List<String> teachernames ) {
         //  this.mContext = mContext;
@@ -126,8 +127,6 @@ public class CourseConfigAdapter  extends RecyclerView.Adapter<CourseConfigAdapt
                 mSelectFragment.show(mActivity.getSupportFragmentManager(),""+String.valueOf(position));
             }
         });
-
-
     }
 
     /**
@@ -155,12 +154,12 @@ public class CourseConfigAdapter  extends RecyclerView.Adapter<CourseConfigAdapt
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 String hour="";
                 String m="";
-                if (hourOfDay < 10){
+                if (hourOfDay < TEN){
                     hour="0"+String.valueOf(hourOfDay);
                 }else {
                     hour=String.valueOf(hourOfDay);
                 }
-                if (minute < 10){
+                if (minute < TEN){
                     m="0"+String.valueOf(minute);
                 }else {
                     m=String.valueOf(minute);

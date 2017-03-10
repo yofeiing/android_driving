@@ -264,7 +264,7 @@ public class StudentManageFragment extends BaseFragment  implements IStudentMana
     @Override
     public void toastMeassager(String msg) {
 
-        showSnackView(mRootView,msg);
+        showSnackView(msg);
 
     }
 

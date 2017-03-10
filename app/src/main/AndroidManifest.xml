@@ -57,7 +57,7 @@
         <activity android:name=".admin.student.StudentInfoActivity"></activity>
         <activity android:name=".admin.configmange.ui.ManualConfigActivity"></activity>
         <activity android:name=".admin.configmange.ui.AutoConfigActivity"></activity>
-        <activity android:name=".admin.configmange.ui.ChoiseTimeActivity"></activity>
+        <activity android:name=".admin.configmange.ui.ChoiceTimeActivity"></activity>
     </application>
 
 </manifest>

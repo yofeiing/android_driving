@@ -4,12 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.admin.adapter.ManualConfigAdapter;
@@ -113,7 +111,7 @@ public class ManualConfigActivity extends BaseActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.auto_config_add_img:
-                Intent intent=new Intent(ManualConfigActivity.this, ChoiseTimeActivity.class);
+                Intent intent=new Intent(ManualConfigActivity.this, ChoiceTimeActivity.class);
                 startActivityForResult(intent,Config.MANULA_REQUEST_CODE);
                 overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
 

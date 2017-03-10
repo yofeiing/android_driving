@@ -1,4 +1,4 @@
-package com.yoflying.drivingschool.admin.adapter;
+package com.yoflying.drivingschool.student.adapter;
 
 import android.os.Handler;
 
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-/**
+/**可预约课程适配器
  * Created by PLED on 2017/3/3.
  */
 

@@ -94,7 +94,7 @@ public class LeaveManageFragment extends BaseFragment implements View.OnClickLis
 
     @Override
     public void showMessage(String msg) {
-        showSnackView(getView(),msg);
+        showSnackView(msg);
     }
 
     @Override

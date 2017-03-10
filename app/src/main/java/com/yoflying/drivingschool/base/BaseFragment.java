@@ -65,13 +65,12 @@ public abstract class BaseFragment extends android.support.v4.app.Fragment{
 
     /**
      * 显示Snackbar
-     * @param view 父布局
      * @param msg 内容
      */
-    public void showSnackView(View view,String msg){
-        Snackbar.make(view,msg,Snackbar.LENGTH_LONG)
+    public void showSnackView(String msg){
+       /* Snackbar.make(view,msg,Snackbar.LENGTH_LONG)
                 .setAction("Action",null)
-                .show();
+                .show();*/
         Snackbar snackbar = Snackbar.make(getView(), msg, Snackbar.LENGTH_SHORT);
         ColoredSnackbar.alert(snackbar).show();
     }

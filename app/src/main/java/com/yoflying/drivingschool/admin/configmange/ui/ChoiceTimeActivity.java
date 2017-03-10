@@ -18,7 +18,8 @@ import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.admin.Inputtime.InputTimeFragment;
 import com.yoflying.drivingschool.admin.Inputtime.InputTimeListener;
 import com.yoflying.drivingschool.admin.adapter.CourseConfigAdapter;
-import com.yoflying.drivingschool.admin.configmange.IView.IChoiseTimeView;
+
+import com.yoflying.drivingschool.admin.configmange.Iview.IChoiceTimeView;
 import com.yoflying.drivingschool.admin.configmange.presenter.ChoiseTimePresenter;
 import com.yoflying.drivingschool.admin.select.SelectTeacherFragment;
 import com.yoflying.drivingschool.base.BaseActivity;
@@ -37,8 +38,8 @@ import java.util.Map;
  * Created by yaojiulong on 2017/2/20.
  */
 
-public class ChoiseTimeActivity extends BaseActivity
-        implements InputTimeListener ,View.OnClickListener,IChoiseTimeView,CourseConfigAdapter.GetItemSomeInfo
+public class ChoiceTimeActivity extends BaseActivity
+        implements InputTimeListener ,View.OnClickListener, IChoiceTimeView,CourseConfigAdapter.GetItemSomeInfo
         ,SelectTeacherFragment.GetTeacherLinstener{
     private TextView mDate;
     private ImageView mAddItem,mMenuRight;
@@ -67,10 +68,10 @@ public class ChoiseTimeActivity extends BaseActivity
     @Override
     protected void findViewId() {
         super.findViewId();
-        mAddDate=findView(R.id.choise_time_add_date);
-        mAddItem=findView(R.id.choise_time_add_item);
-        mConfigView=findView(R.id.choise_time_list);
-        mDate=findView(R.id.choie_time_date_tv);
+        mAddDate=findView(R.id.choice_time_add_date);
+        mAddItem=findView(R.id.choice_time_add_item);
+        mConfigView=findView(R.id.choice_time_list);
+        mDate=findView(R.id.choice_time_add_item);
         //添加下划线
         mAddDate.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
 
@@ -135,13 +136,13 @@ public class ChoiseTimeActivity extends BaseActivity
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.choise_time_add_date:
+            case R.id.choice_time_add_date:
                 if (mInputTimeFragment==null){
                     mInputTimeFragment=new InputTimeFragment();
                 }
                 mInputTimeFragment.show(getSupportFragmentManager(), Config.TAG_FRAGMENT_START_TIME);
                 break;
-            case R.id.choise_time_add_item:
+            case R.id.choice_time_add_item:
 
                 if (mDate.getText().toString().equals("")){
                     showSnackView(getView(),"日期还没有添加，请先添加日期");
