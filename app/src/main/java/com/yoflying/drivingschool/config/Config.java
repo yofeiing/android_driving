@@ -34,6 +34,7 @@ public class Config {
     public static final int DB_VERSION=1;
 
     public static final String TAG_FRAGMENT_START_TIME="InPutStartTime";
+    public static final String TAG_FRAGMENT_ORDER="order";
     public static final String TAG_FRAGMENT_END_TIME="InPutEndTime";
 
     public static final String KEY_STUDENT_NAME="key_student_name";

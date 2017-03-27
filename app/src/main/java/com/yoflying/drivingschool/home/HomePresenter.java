@@ -16,7 +16,8 @@ import com.yoflying.drivingschool.utils.UtilSharedPreferences;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/**
+/**首页控制者
+ * {@link com.yoflying.drivingschool.ui.HomeActivity}
  * Created by yaojiulong on 2016/12/28.
  */
 
@@ -24,10 +25,12 @@ public class HomePresenter extends BasePresenter<IHomeView>{
     private IHomeView mHomeView;
     private String mToken;
     private Context mContext;
+    private DriverApplication mApplication;
     public HomePresenter(IHomeView adminView) {
         this.mHomeView=adminView;
         attachView(mHomeView);
         mContext=DriverApplication.getContextObject();
+        mApplication= (DriverApplication) mContext.getApplicationContext();
         mToken= UtilSharedPreferences.getStringData(DriverApplication.getContextObject(), Config.KEY_TOKEN);
         switchFragment();
         showSomeInfo();
@@ -64,12 +67,14 @@ public class HomePresenter extends BasePresenter<IHomeView>{
             @Override
             public void onSuccess(HttpsResult<Person> model) {
                 mHomeView.showUserName(model.getData().getName());
-               // Log.e("dandy","获取用户信息 "+model.toString());
+
                 if (model.getData().getDiscern()==1){
                     mHomeView.showUserType(mContext.getResources().getString(R.string.user_teacher));
                 }else if (model.getData().getDiscern()==2){
                     mHomeView.showUserType(mContext.getResources().getString(R.string.user_student));
                 }
+                mApplication.setPerson(model.getData());
+
             }
 
             @Override

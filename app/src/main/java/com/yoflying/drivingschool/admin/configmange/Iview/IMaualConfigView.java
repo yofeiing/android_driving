@@ -1,4 +1,4 @@
-package com.yoflying.drivingschool.admin.configmange.IView;
+package com.yoflying.drivingschool.admin.configmange.Iview;
 
 import com.yoflying.drivingschool.base.BaseView;
 

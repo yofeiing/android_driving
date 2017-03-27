@@ -36,7 +36,7 @@ public abstract class ApiCallBack<M> extends Subscriber<M> {
         } else {
             onFailure(e.getMessage());
         }
-        Log.e("dandy","请求异常了 "+e.toString());
+        Log.e("dandy","错误 "+e.toString());
         onFinish();
     }
 

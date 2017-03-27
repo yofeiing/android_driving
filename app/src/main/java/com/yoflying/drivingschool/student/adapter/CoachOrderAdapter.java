@@ -37,7 +37,7 @@ public class CoachOrderAdapter extends BaseQuickAdapter<OrderInfo.DataBean,BaseV
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        LogUtil.e(this,item.getAppointmentDate());
+
 
 
     }

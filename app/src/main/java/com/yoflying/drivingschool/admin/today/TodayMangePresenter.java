@@ -15,7 +15,7 @@ import java.util.List;
 import rx.Observable;
 import rx.functions.Func1;
 
-/**
+/**管理员今日课程控制器{@link TodayFragment}
  * Created by yaojiulong on 2017/1/18.
  */
 

@@ -5,6 +5,7 @@ import android.util.Log;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.yoflying.drivingschool.base.BasePresenter;
 import com.yoflying.drivingschool.config.Config;
+import com.yoflying.drivingschool.student.ui.OrderFragment;
 
 
 /**添加请假  输入时间控制器
@@ -30,6 +31,8 @@ public class InputTimePresenter extends BasePresenter<InPutTimeView> {
             listener.onGetInputStartTime(mTime);
         }else if (tag.equals(Config.TAG_FRAGMENT_END_TIME)){
             listener.onGetInputEndTime(mTime);
+        }else if (tag.equals(Config.TAG_FRAGMENT_ORDER)){
+            OrderFragment.mInputListener.onGetInputStartTime(mTime);
         }
     }
 

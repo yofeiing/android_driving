@@ -33,7 +33,6 @@ public class BasePresenter<V> {
     public void attachView(V mvpView){
         this.mvpView=mvpView;
         mToken= UtilSharedPreferences.getStringData(DriverApplication.getContextObject(), Config.KEY_TOKEN);
-
         mApiStore = RetrofitClient.retrofit(mToken).create(ApiStore.class);
 
     }

@@ -23,9 +23,9 @@ import rx.Observable;
  */
 
 public interface ApiStore {
-//       String BASE_URL="http://waddwaw.vicp.cc:14858/";
+       String BASE_URL="http://waddwaw.vicp.cc:14858/";
     // String BASE_URL="http://192.168.0.103:8080/";
-     String BASE_URL="http://120.27.33.15:8080/";
+    // String BASE_URL="http://120.27.33.15:8080/";
    //  String BASE_URL="http://192.168.1.128:8080/";
 
     @POST("restful/loginPost")
@@ -54,6 +54,10 @@ public interface ApiStore {
     @GET("manage/manageInfo")
     Observable<HttpsResult<Admin>> getAdminInfo();
 
+    /**
+     * 获取可以预约课程的信息
+     * @return
+     */
     @GET("coachstudent/student/getAppointment")
     Observable<OrderInfo> getOrderInfo();
 
@@ -118,6 +122,14 @@ public interface ApiStore {
      * @return
      */
     @POST("manage/postAppointment")
-    Observable<HttpsResult>  submitCouresConfig(@Body RequestBody body);
+    Observable<HttpsResult>  submitCourseConfig(@Body RequestBody body);
+
+    /**
+     * 学员预约课程
+     * @param body
+     * @return
+     */
+    @POST("coachstudent/student/postAppointment")
+    Observable<HttpsResult> orderCourse(@Body RequestBody body);
 
 }

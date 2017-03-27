@@ -1,5 +1,9 @@
 package com.yoflying.drivingschool.admin.adapter;
 
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.yoflying.drivingschool.R;
@@ -24,4 +28,5 @@ public class SearchAdapter extends BaseQuickAdapter<Person,BaseViewHolder> {
 
         }
     }
+
 }

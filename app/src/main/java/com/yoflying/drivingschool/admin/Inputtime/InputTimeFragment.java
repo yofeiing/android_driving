@@ -24,6 +24,8 @@ import com.yoflying.drivingschool.admin.Inputtime.InPutTimeView;
 import com.yoflying.drivingschool.admin.Inputtime.InputTimePresenter;
 import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.entity.Person;
+import com.yoflying.drivingschool.student.ui.OrderFragment;
+import com.yoflying.drivingschool.ui.HomeActivity;
 import com.yoflying.drivingschool.view.MySelectorDecorator;
 
 import java.util.Calendar;
@@ -79,9 +81,18 @@ public class InputTimeFragment extends DialogFragment implements InPutTimeView {
         mCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-                mInputTimeListener = (InputTimeListener) getActivity();
+                if (mTag.equals(Config.TAG_FRAGMENT_ORDER)){
+                    mPresenter.setInputStartDate(mInputTimeListener,date,mTag);
+                    dismiss();
+                    return;
+                }else {
+                    mInputTimeListener = (InputTimeListener) getActivity();
+                    mPresenter.setInputStartDate(mInputTimeListener,date,mTag);
+                    dismiss();
+                }
 
-                mPresenter.setInputStartDate(mInputTimeListener,date,mTag);
+
+
                // showTimePicker();
 
             }
@@ -90,10 +101,15 @@ public class InputTimeFragment extends DialogFragment implements InPutTimeView {
         mSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mInputTimeListener = (InputTimeListener) getActivity();
+                if (mTag.equals(Config.TAG_FRAGMENT_ORDER)){
+                    mPresenter.setInputStartDate(mInputTimeListener, mCalendarView.getSelectedDate(),mTag);
+                    return;
+                }else {
+                    mInputTimeListener = (InputTimeListener) getActivity();
 
+                    mPresenter.setInputStartDate(mInputTimeListener, mCalendarView.getSelectedDate(),mTag);
+                }
 
-                mPresenter.setInputStartDate(mInputTimeListener, mCalendarView.getSelectedDate(),mTag);
             }
         });
 

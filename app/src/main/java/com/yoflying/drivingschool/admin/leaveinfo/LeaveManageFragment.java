@@ -133,7 +133,7 @@ public class LeaveManageFragment extends BaseFragment implements View.OnClickLis
                 mPageIndex++;
                 mPresenter.getLeaveList(mPageIndex);
             }
-        });
+        },mLeavesView);
 
     }
 

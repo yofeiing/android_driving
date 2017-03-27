@@ -10,7 +10,7 @@ import com.yoflying.drivingschool.student.schedule.ScheduleFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/**用户为学员的页面 ，继承baseHomeFragment
  * Created by yaojiulong on 2016/12/29.
  */
 

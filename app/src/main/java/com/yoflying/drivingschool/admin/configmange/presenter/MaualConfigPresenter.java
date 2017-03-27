@@ -3,7 +3,8 @@ package com.yoflying.drivingschool.admin.configmange.presenter;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.yoflying.drivingschool.admin.configmange.IView.IMaualConfigView;
+
+import com.yoflying.drivingschool.admin.configmange.Iview.IMaualConfigView;
 import com.yoflying.drivingschool.base.BasePresenter;
 import com.yoflying.drivingschool.entity.CourseConfig;
 import com.yoflying.drivingschool.entity.HttpsResult;
@@ -60,6 +61,6 @@ public class MaualConfigPresenter extends BasePresenter<IMaualConfigView> {
         Gson gson=new Gson();
         String route=gson.toJson(allDataList);
         RequestBody body=RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"),route);
-        addSubscription(mApiStore.submitCouresConfig(body),subscriber);
+        addSubscription(mApiStore.submitCourseConfig(body),subscriber);
     }
 }

@@ -11,7 +11,8 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.admin.adapter.ManualConfigAdapter;
-import com.yoflying.drivingschool.admin.configmange.IView.IMaualConfigView;
+
+import com.yoflying.drivingschool.admin.configmange.Iview.IMaualConfigView;
 import com.yoflying.drivingschool.admin.configmange.presenter.MaualConfigPresenter;
 import com.yoflying.drivingschool.admin.listener.ManualDialogListener;
 import com.yoflying.drivingschool.base.BaseActivity;

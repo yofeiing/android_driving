@@ -15,6 +15,8 @@ import java.util.List;
 public class DriverApplication extends Application {
     private static Context mContext;
     private  List<Person> mTeachersList;
+    private  Person person;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -35,8 +37,11 @@ public class DriverApplication extends Application {
         this.mTeachersList=data;
     }
 
+    public Person getPerson() {
+        return person;
+    }
 
-
-
-
+    public void setPerson(Person person) {
+        this.person = person;
+    }
 }
