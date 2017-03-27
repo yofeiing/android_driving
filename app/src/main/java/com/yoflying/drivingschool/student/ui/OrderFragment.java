@@ -1,6 +1,8 @@
 package com.yoflying.drivingschool.student.ui;
 
+import android.content.DialogInterface;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -94,7 +96,7 @@ public class OrderFragment extends BaseFragment implements IOrderView ,View.OnCl
         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                mOrderPresenter.orderCourse(mInfoList.get(position));
+                alertOrderDialog(mInfoList.get(position));
             }
         });
 
@@ -136,5 +138,41 @@ public class OrderFragment extends BaseFragment implements IOrderView ,View.OnCl
         super.onDestroy();
         mInputListener=null;
         mOrderPresenter.detachView();
+    }
+
+    @Override
+    public void showDialog() {
+        showProgressDialog();
+    }
+
+    @Override
+    public void cancelDialog() {
+        dimssDialog();
+    }
+
+    @Override
+    public void toastMeassager(String msg) {
+        showSnackView(msg);
+    }
+
+    private void alertOrderDialog(final OrderInfo.DataBean bean){
+        final AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+        builder.setMessage("确实要预约这次课程吗？");
+        builder.setTitle("提示");
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                mOrderPresenter.orderCourse(bean);
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog dialog=builder.create();
+        dialog.show();
     }
 }

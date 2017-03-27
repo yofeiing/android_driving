@@ -122,7 +122,7 @@ public class OrderPresenter extends BasePresenter<IOrderView>{
      */
     public void orderCourse(OrderInfo.DataBean bean){
         //Log.e("dandy","userinfo " +mApplication.getPerson().toString());
-
+        mOrderView.showDialog();
         JSONObject object=new JSONObject();
         try {
             object.put("id",bean.getId());
@@ -133,12 +133,15 @@ public class OrderPresenter extends BasePresenter<IOrderView>{
         ApiCallBack<HttpsResult> subscriber=new ApiCallBack<HttpsResult>() {
             @Override
             public void onSuccess(HttpsResult model) {
-
+                Log.i("dandy","预约成功 "+model.toString());
+                mOrderView.cancelDialog();
+                mOrderView.toastMeassager(model.getMessage());
             }
 
             @Override
             public void onFailure(String msg) {
-
+                Log.e("dandy","预约失败 "+msg);
+                mOrderView.cancelDialog();
             }
 
             @Override

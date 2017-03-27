@@ -71,7 +71,7 @@ public class ChoiceTimeActivity extends BaseActivity
         mAddDate=findView(R.id.choice_time_add_date);
         mAddItem=findView(R.id.choice_time_add_item);
         mConfigView=findView(R.id.choice_time_list);
-        mDate=findView(R.id.choice_time_add_item);
+        mDate=findView(R.id.choice_time_date_tv);
         //添加下划线
         mAddDate.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
 
@@ -239,7 +239,7 @@ public class ChoiceTimeActivity extends BaseActivity
         CourseTimeBean timeBean=mGson.fromJson(mCourses.get(postion).getAppointmentDate(),CourseTimeBean.class);
         timeBean.getTime().setStop(mDate.getText().toString()+" "+time+":00");
         mCourses.get(postion).setAppointmentDate(mGson.toJson(timeBean));
-        Log.e("dandy","log "+mCourses.get(postion).toString());
+        Log.i("dandy","log "+mCourses.get(postion).toString());
         mAdapter.notifyDataSetChanged();
 
     }

@@ -34,6 +34,7 @@ public class CoachOrderAdapter extends BaseQuickAdapter<OrderInfo.DataBean,BaseV
             helper.setText(R.id.order_start_time,jsonObject.getString("start"));
             helper.setText(R.id.order_end_time,jsonObject.getString("stop"));
 
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
