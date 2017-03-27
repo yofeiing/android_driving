@@ -1,14 +1,18 @@
 package com.yoflying.drivingschool.ui;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -18,6 +22,7 @@ import com.yoflying.drivingschool.base.BaseActivity;
 import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.modules.login.IUserLoginView;
 import com.yoflying.drivingschool.modules.login.UserLoginPresenter;
+import com.yoflying.drivingschool.widget.CircularAnim;
 
 
 /**
@@ -29,10 +34,13 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
     private EditText mPassword;
     private RadioGroup mRadioGroup;
     private RadioButton mAdmin,mTeacher,mStudent;
-    private ProgressDialog mDialog;
+//    private ProgressDialog mDialog;
     private Button mSingIn;
     private int mUserType= Config.USER_TYPE_ADMIN;
     private LinearLayout mLoginLayout;
+    private boolean isLogin;
+    private FrameLayout mFramlayout;
+    private ProgressBar mProgressbar;
 
 
     @Override
@@ -54,6 +62,8 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
         mTeacher=findView(R.id.login_teacher);
         mStudent=findView(R.id.login_student);
         mSingIn=findView(R.id.login_sing_in);
+        mFramlayout = (FrameLayout) findViewById(R.id.fram_button);
+        mProgressbar = (ProgressBar) findViewById(R.id.progress);
 
     }
 
@@ -85,6 +95,7 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
         mSingIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 mUserLoginPresenter.login();
 
             }
@@ -124,29 +135,42 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
 
     @Override
     public void showDialog() {
-        mDialog=ProgressDialog.show(LoginActivity.this,"提示","正在登录...");
+
+//        mDialog=ProgressDialog.show(LoginActivity.this,"提示","正在登录...");
+        mProgressbar.setVisibility(View.VISIBLE);
+            CircularAnim.hide(mSingIn).go();
+
+
 
     }
 
     @Override
     public void cancelDialog() {
-        mDialog.cancel();
+//        mDialog.cancel();
     }
 
     @Override
     public void toastMeassager(String msg) {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                CircularAnim.show(mSingIn).go();
+
+            }
+        },500);
         Snackbar.make(mLoginLayout, msg, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();
     }
 
     @Override
     public void toMainActivity() {
-        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-        finish();
+        startActivityWithFull(this,HomeActivity.class,mFramlayout);
+
     }
 
     @Override
     public void showFailedError() {
+
     }
 
     /**
@@ -160,6 +184,7 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
 
     @Override
     public void userOrPwdIsNull() {
+        isLogin = false;
         Toast.makeText(LoginActivity.this,"用户名或者密码不能为空",Toast.LENGTH_SHORT).show();
     }
 

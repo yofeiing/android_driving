@@ -2,7 +2,6 @@ package com.yoflying.drivingschool.admin.adapter;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.yoflying.drivingschool.DriverApplication;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.entity.LeaveInfo;
 

@@ -96,17 +96,30 @@
                     android:layout_height="wrap_content"
                     android:text="@string/user_student"/>
             </RadioGroup>
-
-            <Button
-                android:layout_margin="@dimen/loging_margingleftandright"
-                android:id="@+id/login_sing_in"
+            <FrameLayout
+                android:id="@+id/fram_button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:textColor="@color/color_white"
-                android:background="@drawable/login_btn_shape"
-                android:text="@string/action_sing_in_btn"
-               />
+                android:layout_margin="16dp"
+                android:layout_height="wrap_content">
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:layout_margin="@dimen/loging_margingleftandright"
+                    android:id="@+id/login_sing_in"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:textColor="@color/color_white"
+                    android:background="@drawable/login_btn_shape"
+                    android:text="@string/action_sing_in_btn"
+                    />
+                
+            </FrameLayout>
+
+
 
         </LinearLayout>
     </ScrollView>

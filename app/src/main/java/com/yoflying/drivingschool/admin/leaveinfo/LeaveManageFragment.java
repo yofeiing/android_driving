@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.yoflying.drivingschool.DriverApplication;
+import com.yoflying.drivingschool.app.DriverApplication;
 import com.yoflying.drivingschool.R;
 
 import com.yoflying.drivingschool.admin.adapter.LeaveListInfoAdapter;

@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.yoflying.drivingschool.DriverApplication;
+import com.yoflying.drivingschool.app.DriverApplication;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.admin.ui.PersonManageActivity;
 import com.yoflying.drivingschool.base.BaseFragment;

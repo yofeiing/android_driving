@@ -14,7 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.yoflying.drivingschool.DriverApplication;
+import com.yoflying.drivingschool.app.DriverApplication;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.admin.search.SearchActivity;
 import com.yoflying.drivingschool.base.BaseActivity;

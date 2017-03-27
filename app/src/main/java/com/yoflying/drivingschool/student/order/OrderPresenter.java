@@ -3,15 +3,12 @@ package com.yoflying.drivingschool.student.order;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.yoflying.drivingschool.DriverApplication;
+import com.yoflying.drivingschool.app.DriverApplication;
 import com.yoflying.drivingschool.base.BasePresenter;
-import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.entity.HttpsResult;
 import com.yoflying.drivingschool.retrofit.ApiCallBack;
 import com.yoflying.drivingschool.student.bean.OrderInfo;
 import com.yoflying.drivingschool.student.bean.OrderTime;
-import com.yoflying.drivingschool.utils.UtilSharedPreferences;
 
 import org.json.JSONException;
 import org.json.JSONObject;

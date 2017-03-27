@@ -2,7 +2,7 @@ package com.yoflying.drivingschool.modules.welcome;
 
 import android.os.Handler;
 
-import com.yoflying.drivingschool.DriverApplication;
+import com.yoflying.drivingschool.app.DriverApplication;
 import com.yoflying.drivingschool.base.BasePresenter;
 import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.utils.UtilSharedPreferences;

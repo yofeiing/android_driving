@@ -1,13 +1,9 @@
 package com.yoflying.drivingschool.base;
 
-import android.content.Intent;
-import android.util.Log;
-
-import com.yoflying.drivingschool.DriverApplication;
+import com.yoflying.drivingschool.app.DriverApplication;
 import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.retrofit.ApiStore;
 import com.yoflying.drivingschool.retrofit.RetrofitClient;
-import com.yoflying.drivingschool.ui.LoginActivity;
 import com.yoflying.drivingschool.utils.UtilSharedPreferences;
 
 

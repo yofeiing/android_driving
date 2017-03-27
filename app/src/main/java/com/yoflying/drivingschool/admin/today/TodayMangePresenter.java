@@ -1,9 +1,6 @@
 package com.yoflying.drivingschool.admin.today;
 
-import android.util.Log;
-
-import com.google.gson.Gson;
-import com.yoflying.drivingschool.DriverApplication;
+import com.yoflying.drivingschool.app.DriverApplication;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.base.BasePresenter;
 import com.yoflying.drivingschool.entity.HttpsResult;
@@ -11,9 +8,6 @@ import com.yoflying.drivingschool.entity.TodayCourse;
 import com.yoflying.drivingschool.retrofit.ApiCallBack;
 
 import java.util.List;
-
-import rx.Observable;
-import rx.functions.Func1;
 
 /**管理员今日课程控制器{@link TodayFragment}
  * Created by yaojiulong on 2017/1/18.

@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.yoflying.drivingschool.DriverApplication;
+import com.yoflying.drivingschool.app.DriverApplication;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.admin.Inputtime.InputTimeFragment;
 import com.yoflying.drivingschool.admin.Inputtime.InputTimeListener;

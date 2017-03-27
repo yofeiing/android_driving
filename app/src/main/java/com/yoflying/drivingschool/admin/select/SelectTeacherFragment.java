@@ -15,7 +15,7 @@ import android.widget.Button;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
-import com.yoflying.drivingschool.DriverApplication;
+import com.yoflying.drivingschool.app.DriverApplication;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.admin.adapter.TeachersManageAdapter;
 import com.yoflying.drivingschool.admin.configmange.ui.ChoiceTimeActivity;

@@ -1,10 +1,12 @@
-package com.yoflying.drivingschool;
+package com.yoflying.drivingschool.app;
 
 import android.app.Application;
 import android.content.Context;
 
+import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.entity.Person;
 import com.yoflying.drivingschool.utils.CrashHandler;
+import com.yoflying.drivingschool.widget.CircularAnim;
 
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class DriverApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mContext=getApplicationContext();
+        CircularAnim.init(700,500, R.color.colorAccent);
        /* CrashHandler crashHandler = CrashHandler.getInstance();
         crashHandler.init(getApplicationContext());*/
     }

@@ -1,5 +1,6 @@
 package com.yoflying.drivingschool.base;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PersistableBundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -26,7 +28,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.yoflying.drivingschool.R;
+import com.yoflying.drivingschool.ui.HomeActivity;
+import com.yoflying.drivingschool.ui.LoginActivity;
 import com.yoflying.drivingschool.view.ColoredSnackbar;
+import com.yoflying.drivingschool.widget.CircularAnim;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -280,5 +285,28 @@ public abstract class BaseActivity extends AppCompatActivity implements Activity
     public View getView(){
         return getWindow().getDecorView();
     }
+
+    /**
+     *
+     * @param currentContext 当前context
+     * @param cls 目标class
+     * @param view 从哪个布局开始铺满
+     */
+    protected void startActivityWithFull(final Context currentContext, final Class<?> cls, final View view){
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                CircularAnim.fullActivity((Activity)currentContext,view)
+                        .go(new CircularAnim.OnAnimationEndListener() {
+                            @Override
+                            public void onAnimationEnd() {
+                                startActivity(new Intent(currentContext, cls));
+                                finish();
+                            }
+                        });
+            }
+        },1000);
+    }
+
 
 }

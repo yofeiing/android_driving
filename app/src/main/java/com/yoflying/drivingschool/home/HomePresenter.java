@@ -3,7 +3,7 @@ package com.yoflying.drivingschool.home;
 import android.content.Context;
 import android.util.Log;
 
-import com.yoflying.drivingschool.DriverApplication;
+import com.yoflying.drivingschool.app.DriverApplication;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.base.BasePresenter;
 import com.yoflying.drivingschool.entity.Admin;
