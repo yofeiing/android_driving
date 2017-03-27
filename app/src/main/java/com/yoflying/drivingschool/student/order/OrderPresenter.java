@@ -1,5 +1,6 @@
 package com.yoflying.drivingschool.student.order;
 
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -33,6 +34,9 @@ public class OrderPresenter extends BasePresenter<IOrderView>{
     private Map<String,List<OrderInfo.DataBean>> mMapData;
     private List<String> mTimeList;
     private DriverApplication mApplication;
+    private final String PARAMS_ID="id";
+    private final String PARAMS_STUDENT_ID="studentsId";
+
 
     public OrderPresenter(IOrderView mOrderView) {
         this.mOrderView = mOrderView;
@@ -69,7 +73,7 @@ public class OrderPresenter extends BasePresenter<IOrderView>{
      * 处理数据
      * @param data
      */
-    private void disposeData(OrderInfo data){
+    private void disposeData(@NonNull OrderInfo data){
         Gson gson=new Gson();
         OrderTime orderTime;
         mTimeList=new ArrayList<>();
@@ -122,8 +126,8 @@ public class OrderPresenter extends BasePresenter<IOrderView>{
         mOrderView.showDialog();
         JSONObject object=new JSONObject();
         try {
-            object.put("id",bean.getId());
-            object.put("studentsId",mApplication.getPerson().getId());
+            object.put(PARAMS_ID,bean.getId());
+            object.put(PARAMS_STUDENT_ID,mApplication.getPerson().getId());
         } catch (JSONException e) {
             e.printStackTrace();
         }

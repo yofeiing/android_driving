@@ -59,6 +59,15 @@
                 android:id="@+id/order_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/remain_num"/>
+            <TextView
+                android:id="@+id/remain_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="20dp"
@@ -107,7 +116,17 @@
 
     </LinearLayout>
 
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/order_is_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/icon_ordered"/>
+    </RelativeLayout>
 
 
 
