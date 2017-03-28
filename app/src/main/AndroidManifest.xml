@@ -53,11 +53,11 @@
         <activity android:name=".admin.ui.PersonManageActivity" />
         <activity
             android:name=".admin.addleave.AddLeaveActivity"
-            android:label="添加请假"/>
-        <activity android:name=".admin.student.StudentInfoActivity"/>
-        <activity android:name=".admin.configmange.ui.ManualConfigActivity"/>
-        <activity android:name=".admin.configmange.ui.AutoConfigActivity"/>
-        <activity android:name=".admin.configmange.ui.ChoiseTimeActivity"/>
+            android:label="添加请假" />
+        <activity android:name=".admin.student.StudentInfoActivity" />
+        <activity android:name=".admin.configmange.ui.ManualConfigActivity" />
+        <activity android:name=".admin.configmange.ui.AutoConfigActivity" />
+        <activity android:name=".admin.configmange.ui.ChoiseTimeActivity" />
     </application>
 
 </manifest>

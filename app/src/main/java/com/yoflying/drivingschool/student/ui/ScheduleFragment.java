@@ -29,8 +29,7 @@ public class ScheduleFragment extends BaseFragment implements IScheduleView{
 
     @Override
     protected void initFindViewById(View view) {
-        mRefreshLayout= (SwipeRefreshLayout) view.findViewById(R.id.schedule_refresh_layout);
-        mFutureCourse= (RecyclerView) view.findViewById(R.id.schedule_future_course_rlv);
+
     }
 
     @Override

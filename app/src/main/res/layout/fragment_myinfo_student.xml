@@ -32,7 +32,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/admin_manage_teacher_layout"
+        android:id="@+id/student_info_teacher_layout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white"
@@ -53,7 +53,7 @@
             android:layout_marginRight="10dp"/>
     </RelativeLayout>
     <RelativeLayout
-        android:id="@+id/student_manage_teacher_layout"
+        android:id="@+id/student_info_course_layout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/white"
