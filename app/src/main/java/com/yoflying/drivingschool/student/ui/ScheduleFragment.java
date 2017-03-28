@@ -18,8 +18,7 @@ import java.util.List;
  */
 
 public class ScheduleFragment extends BaseFragment implements IScheduleView{
-    private SwipeRefreshLayout mRefreshLayout;
-    private RecyclerView mFutureCourse;
+
 
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container) {
