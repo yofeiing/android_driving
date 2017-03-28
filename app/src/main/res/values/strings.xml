@@ -50,4 +50,10 @@
     <string name="admin_today_no_course">今日无课程安排</string>
 
     <string name="auto_choise_time_title">手动选择</string>
+
+
+    <string name="student_my_teacher">我的教练</string>
+    <string name="student_my_course">我的课程</string>
+    <string name="student_protocol">学员协议</string>
+    <string name="student_order_history">约车记录</string>
 </resources>

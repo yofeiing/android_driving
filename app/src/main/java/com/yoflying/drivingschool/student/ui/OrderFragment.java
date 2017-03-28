@@ -19,6 +19,7 @@ import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.admin.Inputtime.InputTimeFragment;
 import com.yoflying.drivingschool.admin.Inputtime.InputTimeListener;
+import com.yoflying.drivingschool.app.DriverApplication;
 import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.student.adapter.CoachOrderAdapter;
 import com.yoflying.drivingschool.base.BaseFragment;
@@ -27,9 +28,6 @@ import com.yoflying.drivingschool.student.bean.OrderInfo;
 import com.yoflying.drivingschool.student.order.IOrderView;
 import com.yoflying.drivingschool.student.order.OrderPresenter;
 import com.yoflying.drivingschool.utils.LogUtil;
-import com.zhy.view.flowlayout.FlowLayout;
-import com.zhy.view.flowlayout.TagAdapter;
-import com.zhy.view.flowlayout.TagFlowLayout;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -53,6 +51,7 @@ public class OrderFragment extends BaseFragment implements IOrderView ,View.OnCl
     CoachOrderAdapter mAdapter;
     private List<OrderInfo.DataBean> mInfoList=new ArrayList<>();
     private TimeChooseAdapter mTimeAdapter;
+    private List<Boolean> mIsVisible;
 
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container) {
@@ -89,14 +88,18 @@ public class OrderFragment extends BaseFragment implements IOrderView ,View.OnCl
     public void getDataSuccess(OrderInfo info) {
         LogUtil.e(this,info.toString());
         mInfoList=info.getData();
-        mAdapter = new CoachOrderAdapter(mInfoList);
+        mAdapter = new CoachOrderAdapter(mInfoList, (DriverApplication) DriverApplication.getContextObject());
         mOrderList.setLayoutManager(new LinearLayoutManager(mActivity));
         mOrderList.setAdapter(mAdapter);
-
+       // mIsVisible=mAdapter.getIsVisible();
         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                alertOrderDialog(mInfoList.get(position));
+                mIsVisible=mAdapter.getIsVisible();
+                if (!mIsVisible.get(position)){
+                    alertOrderDialog(mInfoList.get(position));
+                }
+
             }
         });
 
@@ -108,6 +111,7 @@ public class OrderFragment extends BaseFragment implements IOrderView ,View.OnCl
         mTimeAdapter=new TimeChooseAdapter(mTimes);
         mTimeChoose.setLayoutManager(new GridLayoutManager(getContext(),4));
         mTimeChoose.setAdapter(mTimeAdapter);
+
         mTimeAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -115,7 +119,8 @@ public class OrderFragment extends BaseFragment implements IOrderView ,View.OnCl
 
                 mInfoList=dataBeen;
                 mAdapter.setNewData(mInfoList);
-
+                mAdapter.clearIsVisible();
+                mIsVisible=mAdapter.getIsVisible();
             }
         });
 

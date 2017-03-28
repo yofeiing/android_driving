@@ -5,6 +5,8 @@ import com.yoflying.drivingschool.entity.HttpsResult;
 import com.yoflying.drivingschool.entity.LeaveInfo;
 import com.yoflying.drivingschool.entity.Person;
 import com.yoflying.drivingschool.entity.TodayCourse;
+import com.yoflying.drivingschool.student.bean.FutureCourse;
+import com.yoflying.drivingschool.student.bean.HistoryRecord;
 import com.yoflying.drivingschool.student.bean.OrderInfo;
 
 import java.util.List;
@@ -131,5 +133,19 @@ public interface ApiStore {
      */
     @POST("coachstudent/student/postAppointment")
     Observable<HttpsResult> orderCourse(@Body RequestBody body);
+
+    /**
+     * 学员获取未来学车情况
+     * @return
+     */
+    @GET("coachstudent/student/futureAppointment")
+    Observable<HttpsResult<List<FutureCourse>>> getFutureCourse();
+
+    /**
+     * 获取历史约车记录
+     * @return
+     */
+    @GET("coachstudent/student/historyAppointment")
+    Observable<HttpsResult<List<HistoryRecord>>> getHistoryRecords();
 
 }

@@ -45,11 +45,14 @@ public class OrderPresenter extends BasePresenter<IOrderView>{
 
     }
 
+    /**
+     * 获取可预约信息
+     */
     public void getOrderInfo(){
         ApiCallBack<OrderInfo> subscriber=new ApiCallBack<OrderInfo>() {
             @Override
             public void onSuccess(OrderInfo model) {
-                Log.e("dandy","成功了"+model.toString());
+              //  Log.e("dandy","成功了"+model.toString());
                 mOrderView.getDataSuccess(model);
                 disposeData(model);
 
@@ -98,7 +101,6 @@ public class OrderPresenter extends BasePresenter<IOrderView>{
         }
         mOrderView.showTimeTag(mTimeList);
         mOrderView.getDataMap(mMapData);
-        Log.e("dandy","map  "+mTimeList.toString());
 
 
     }
