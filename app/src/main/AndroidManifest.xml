@@ -45,6 +45,7 @@
         </activity>
         <activity
             android:name=".ui.LoginActivity"
+            android:theme="@style/loginTheme"
             android:launchMode="singleTask" />
         <activity
             android:name=".admin.search.SearchActivity"

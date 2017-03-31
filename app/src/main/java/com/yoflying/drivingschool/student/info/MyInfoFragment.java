@@ -1,5 +1,7 @@
 package com.yoflying.drivingschool.student.info;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +17,18 @@ import com.yoflying.drivingschool.base.BaseFragment;
 public class MyInfoFragment extends BaseFragment implements View.OnClickListener {
 
     private RelativeLayout mMyTeacherLayout,mMyCourseLayout,mMyHistoryLayout,mMyProtocolLayout;
-
+    private android.support.v4.app.FragmentTransaction mTransaction;
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container) {
         return inflater.inflate(R.layout.fragment_myinfo_student,container,false);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        mTransaction=getFragmentManager().beginTransaction();
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override

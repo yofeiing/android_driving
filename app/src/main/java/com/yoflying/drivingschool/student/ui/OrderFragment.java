@@ -1,6 +1,7 @@
 package com.yoflying.drivingschool.student.ui;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.GridLayoutManager;
@@ -28,6 +29,7 @@ import com.yoflying.drivingschool.student.bean.OrderInfo;
 import com.yoflying.drivingschool.student.order.IOrderView;
 import com.yoflying.drivingschool.student.order.OrderPresenter;
 import com.yoflying.drivingschool.utils.LogUtil;
+import com.yoflying.drivingschool.utils.TimeUtils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -108,7 +110,13 @@ public class OrderFragment extends BaseFragment implements IOrderView ,View.OnCl
     @Override
     public void showTimeTag(final List<String> mTimes) {
         mTimeList=mTimes;
-        mTimeAdapter=new TimeChooseAdapter(mTimes);
+
+        List<String> data = new ArrayList<>();
+        for (String d : mTimes) {
+            data.add(TimeUtils.DateToString(TimeUtils.StringToDate(d), TimeUtils.YYYY_MM_DD));
+        }
+        mTimeAdapter=new TimeChooseAdapter(data);
+
         mTimeChoose.setLayoutManager(new GridLayoutManager(getContext(),4));
         mTimeChoose.setAdapter(mTimeAdapter);
 
@@ -117,6 +125,13 @@ public class OrderFragment extends BaseFragment implements IOrderView ,View.OnCl
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 List<OrderInfo.DataBean> dataBeen=mDataMap.get(mTimes.get(position));
 
+                for (int i = 0; i < adapter.getItemCount(); i++) {
+                    if (i == position) {
+                        view.setBackgroundColor(Color.parseColor("#f59e12"));
+                    } else {
+                        mTimeChoose.getChildAt(i).setBackgroundColor(Color.parseColor("#53ccf2"));
+                    }
+                }
                 mInfoList=dataBeen;
                 mAdapter.setNewData(mInfoList);
                 mAdapter.clearIsVisible();

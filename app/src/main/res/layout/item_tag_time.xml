@@ -3,14 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="30dp"
-    android:background="@drawable/tag_time_bg"
+    android:background="@color/refresh_color_1"
+    android:gravity="center"
     android:layout_marginLeft="20dp">
 
     <TextView
         android:id="@+id/item_tag_time"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:textSize="12sp"
         android:textColor="@color/white"
-
       />
 </LinearLayout>
