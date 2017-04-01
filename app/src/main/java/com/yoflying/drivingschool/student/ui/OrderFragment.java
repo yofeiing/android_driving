@@ -113,13 +113,12 @@ public class OrderFragment extends BaseFragment implements IOrderView ,View.OnCl
 
         List<String> data = new ArrayList<>();
         for (String d : mTimes) {
-            data.add(TimeUtils.DateToString(TimeUtils.StringToDate(d), TimeUtils.YYYY_MM_DD));
+            data.add(" " + TimeUtils.DateToString(TimeUtils.StringToDate(d), TimeUtils.YYYY_MM_DD));
         }
-        mTimeAdapter=new TimeChooseAdapter(data);
+        mTimeAdapter = new TimeChooseAdapter(data);
 
         mTimeChoose.setLayoutManager(new GridLayoutManager(getContext(),4));
         mTimeChoose.setAdapter(mTimeAdapter);
-
         mTimeAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
