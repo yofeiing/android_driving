@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.yoflying.drivingschool.base.BaseFragment;
 import com.yoflying.drivingschool.base.BaseHomeFragment;
-import com.yoflying.drivingschool.student.info.MyInfoFragment;
 
 import java.util.ArrayList;
 import java.util.List;

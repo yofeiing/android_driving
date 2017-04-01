@@ -18,7 +18,7 @@ import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.yoflying.drivingschool.app.DriverApplication;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.admin.adapter.TeachersManageAdapter;
-import com.yoflying.drivingschool.admin.configmange.ui.ChoiceTimeActivity;
+import com.yoflying.drivingschool.admin.configmange.ui.ChooseTimeActivity;
 import com.yoflying.drivingschool.entity.Person;
 
 import java.util.List;
@@ -31,7 +31,7 @@ public class SelectTeacherFragment extends DialogFragment {
     private RecyclerView mTeachersView;
     private List<Person> mteachers;
     private Button mCancel,mSubmit;
-    private ChoiceTimeActivity mActivity;
+    private ChooseTimeActivity mActivity;
     private DriverApplication mApplication;
     private TeachersManageAdapter mAdapter;
     private Integer mPostion;

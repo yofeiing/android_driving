@@ -7,6 +7,12 @@ import com.yoflying.drivingschool.base.BasePresenter;
 import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.utils.UtilSharedPreferences;
 
+import java.util.concurrent.TimeUnit;
+
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func1;
+
 /**
  * Created by yaojiulong on 2016/12/26.
  */
@@ -30,16 +36,18 @@ public class WelcomePresenter extends BasePresenter<IWelcomeView> {
     }
 
     private void delayed(){
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        Observable.timer(1, TimeUnit.SECONDS, AndroidSchedulers.mainThread()).map(new Func1<Long, Object>() {
             @Override
-            public void run() {
+            public Object call(Long aLong) {
                 if (mIsNew){
                     mWecomeView.toLoginActivity();
-                }else
+                }else {
                     mWecomeView.toAdminActivity();
+                }
+                return null;
             }
-        },1000);
+        }).subscribe();
+
     }
 
 

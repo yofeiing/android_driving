@@ -112,7 +112,7 @@ public class ManualConfigActivity extends BaseActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.auto_config_add_img:
-                Intent intent=new Intent(ManualConfigActivity.this, ChoiceTimeActivity.class);
+                Intent intent=new Intent(ManualConfigActivity.this, ChooseTimeActivity.class);
                 startActivityForResult(intent,Config.MANULA_REQUEST_CODE);
                 overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
 

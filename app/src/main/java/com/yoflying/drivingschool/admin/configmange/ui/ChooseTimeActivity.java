@@ -38,7 +38,7 @@ import java.util.Map;
  * Created by yaojiulong on 2017/2/20.
  */
 
-public class ChoiceTimeActivity extends BaseActivity
+public class ChooseTimeActivity extends BaseActivity
         implements InputTimeListener ,View.OnClickListener, IChoiceTimeView,CourseConfigAdapter.GetItemSomeInfo
         ,SelectTeacherFragment.GetTeacherLinstener{
     private TextView mDate;

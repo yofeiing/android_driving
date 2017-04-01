@@ -51,4 +51,12 @@ public class Config {
 
 
     public static final String KEY_COURSE_CONFIG="key_course_config";
+
+
+    public static final String KEY_STUDENT_FRAGMENT_TYPE="key_student_type";
+
+    public static final int TYPE_STUDENT_HISTORY=1;
+    public static final int TYPE_STUDENT_COURSE=2;
+    public static final int TYPE_STUDENT_PROTOCOL=3;
+    public static final int TYPE_STUDENT_TEACHER=4;
 }
