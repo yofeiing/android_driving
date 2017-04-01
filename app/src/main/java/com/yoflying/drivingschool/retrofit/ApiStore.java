@@ -146,6 +146,6 @@ public interface ApiStore {
      * @return
      */
     @GET("coachstudent/student/historyAppointment")
-    Observable<HttpsResult<List<HistoryRecord>>> getHistoryRecords();
+    Observable<HttpsResult<List<HistoryRecord>>> getHistoryRecords(@QueryMap  Map<String,String> map);
 
 }

@@ -52,9 +52,9 @@ public class MyInfoFragment extends BaseFragment implements View.OnClickListener
                 break;
 
             case R.id.student_info_course_layout:
-                Intent courese =new Intent(getContext(),StudentInfoActivity.class);
-                courese.putExtra(Config.KEY_STUDENT_FRAGMENT_TYPE,Config.TYPE_STUDENT_COURSE);
-                startActivity(courese);
+                Intent course =new Intent(getContext(),StudentInfoActivity.class);
+                course.putExtra(Config.KEY_STUDENT_FRAGMENT_TYPE,Config.TYPE_STUDENT_COURSE);
+                startActivity(course);
                 break;
             case R.id.student_order_history_layout:
                 Intent history=new Intent(getContext(), StudentInfoActivity.class);

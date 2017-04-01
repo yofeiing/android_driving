@@ -59,4 +59,10 @@ public class Config {
     public static final int TYPE_STUDENT_COURSE=2;
     public static final int TYPE_STUDENT_PROTOCOL=3;
     public static final int TYPE_STUDENT_TEACHER=4;
+
+
+    public static class HttpParams{
+        public static final String PARAMS_PAGE_NUM="pageNum";
+    }
+
 }

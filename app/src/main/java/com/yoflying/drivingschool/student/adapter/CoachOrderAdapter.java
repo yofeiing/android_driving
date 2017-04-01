@@ -10,6 +10,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.reflect.TypeToken;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.app.DriverApplication;
+import com.yoflying.drivingschool.entity.Person;
 import com.yoflying.drivingschool.student.bean.OrderInfo;
 import com.yoflying.drivingschool.utils.LogUtil;
 
@@ -28,11 +29,18 @@ public class CoachOrderAdapter extends BaseQuickAdapter<OrderInfo.DataBean,BaseV
     private DriverApplication mApplication;
     private List<Boolean> mIsVisible;
     private boolean mIsOrded;//是否已经预约过了
+    private int mUserId=-1;
+    private Person mUser;
 
     public CoachOrderAdapter(List<OrderInfo.DataBean> data,DriverApplication application) {
         super(R.layout.order_list_item,data);
         this.mApplication=application;
         mIsVisible=new ArrayList<>();
+        mUser=mApplication.getPerson();
+        if (mUser!=null){
+            mUserId=mApplication.getPerson().getId();
+        }
+
     }
 
     @Override
@@ -58,7 +66,7 @@ public class CoachOrderAdapter extends BaseQuickAdapter<OrderInfo.DataBean,BaseV
 
                 mIsOrded=false;
                 for (Integer id : ids) {
-                    if (id==mApplication.getPerson().getId()){
+                    if (id==mUserId){
                         helper.setVisible(R.id.order_is_img,true);
                         mIsOrded=true;
                         break;
