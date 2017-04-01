@@ -6,13 +6,17 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.yoflying.drivingschool.app.DriverApplication;
 import com.yoflying.drivingschool.base.BasePresenter;
+import com.yoflying.drivingschool.config.LogDef;
 import com.yoflying.drivingschool.entity.HttpsResult;
+import com.yoflying.drivingschool.home.HomePresenter;
 import com.yoflying.drivingschool.retrofit.ApiCallBack;
 import com.yoflying.drivingschool.student.bean.OrderInfo;
 import com.yoflying.drivingschool.student.bean.OrderTime;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,6 +33,7 @@ import okhttp3.RequestBody;
  */
 
 public class OrderPresenter extends BasePresenter<IOrderView>{
+    private static final Logger logger = LoggerFactory.getLogger(OrderPresenter.class);
     private IOrderView mOrderView;
     private String mToken;
     private Map<String,List<OrderInfo.DataBean>> mMapData;
@@ -136,7 +141,7 @@ public class OrderPresenter extends BasePresenter<IOrderView>{
         ApiCallBack<HttpsResult> subscriber=new ApiCallBack<HttpsResult>() {
             @Override
             public void onSuccess(HttpsResult model) {
-                Log.i("dandy","预约成功 "+model.toString());
+                logger.info(LogDef.LOG_HTTP, "预约单个课程成功");
                 mOrderView.cancelDialog();
                 mOrderView.toastMeassager(model.getMessage());
             }

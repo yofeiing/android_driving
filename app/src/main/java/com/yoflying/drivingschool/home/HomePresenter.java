@@ -6,12 +6,16 @@ import android.util.Log;
 import com.yoflying.drivingschool.app.DriverApplication;
 import com.yoflying.drivingschool.R;
 import com.yoflying.drivingschool.base.BasePresenter;
+import com.yoflying.drivingschool.config.LogDef;
 import com.yoflying.drivingschool.entity.Admin;
 import com.yoflying.drivingschool.entity.HttpsResult;
 import com.yoflying.drivingschool.entity.Person;
 import com.yoflying.drivingschool.config.Config;
 import com.yoflying.drivingschool.retrofit.ApiCallBack;
 import com.yoflying.drivingschool.utils.UtilSharedPreferences;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -22,6 +26,7 @@ import java.util.TimerTask;
  */
 
 public class HomePresenter extends BasePresenter<IHomeView>{
+    private static final Logger logger = LoggerFactory.getLogger(HomePresenter.class);
     private IHomeView mHomeView;
     private String mToken;
     private Context mContext;
@@ -79,7 +84,7 @@ public class HomePresenter extends BasePresenter<IHomeView>{
 
             @Override
             public void onFailure(String msg) {
-                Log.e("dandy","请求失败 "+msg);
+                logger.info(LogDef.LOG_HTTP, "HomePersenter 获取信息失败");
             }
 
             @Override
@@ -102,7 +107,7 @@ public class HomePresenter extends BasePresenter<IHomeView>{
             public void onSuccess(HttpsResult<Admin> model) {
                 mHomeView.showUserName(model.getData().getUsername());
                 mHomeView.showUserType(mContext.getResources().getString(R.string.user_admin));
-                Log.e("dandy","获取管理员信息成功");
+                logger.info(LogDef.LOG_HTTP, "获取管理员信息成功");
             }
 
             @Override

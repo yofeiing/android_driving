@@ -2,6 +2,12 @@ package com.yoflying.drivingschool.retrofit;
 
 import android.util.Log;
 
+import com.yoflying.drivingschool.config.LogDef;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 import retrofit2.adapter.rxjava.HttpException;
 import rx.Subscriber;
 
@@ -10,6 +16,7 @@ import rx.Subscriber;
  */
 
 public abstract class ApiCallBack<M> extends Subscriber<M> {
+    private static final Logger logger = LoggerFactory.getLogger(ApiCallBack.class);
     public abstract void onSuccess(M model);
 
     public abstract void onFailure(String msg);
@@ -24,7 +31,7 @@ public abstract class ApiCallBack<M> extends Subscriber<M> {
             //httpException.response().errorBody().string()
             int code = httpException.code();
             String msg = httpException.getMessage();
-            Log.d("dandy","code=" + code);
+            logger.error(LogDef.LOG_HTTP, "code=" + code);
             onFailure(msg);
             switch (code){
                 case 401:
@@ -36,7 +43,7 @@ public abstract class ApiCallBack<M> extends Subscriber<M> {
         } else {
             onFailure(e.getMessage());
         }
-        Log.e("dandy","错误 "+e.toString());
+        logger.error(LogDef.LOG_HTTP, e.toString());
         onFinish();
     }
 

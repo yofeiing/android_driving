@@ -22,6 +22,7 @@ import com.yoflying.drivingschool.admin.Inputtime.InputTimeFragment;
 import com.yoflying.drivingschool.admin.Inputtime.InputTimeListener;
 import com.yoflying.drivingschool.app.DriverApplication;
 import com.yoflying.drivingschool.config.Config;
+import com.yoflying.drivingschool.retrofit.ApiCallBack;
 import com.yoflying.drivingschool.student.adapter.CoachOrderAdapter;
 import com.yoflying.drivingschool.base.BaseFragment;
 import com.yoflying.drivingschool.student.adapter.TimeChooseAdapter;
@@ -30,6 +31,9 @@ import com.yoflying.drivingschool.student.order.IOrderView;
 import com.yoflying.drivingschool.student.order.OrderPresenter;
 import com.yoflying.drivingschool.utils.LogUtil;
 import com.yoflying.drivingschool.utils.TimeUtils;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -42,6 +46,7 @@ import java.util.Set;
  */
 
 public class OrderFragment extends BaseFragment implements IOrderView ,View.OnClickListener{
+    private static final Logger logger = LoggerFactory.getLogger(OrderFragment.class);
     private OrderPresenter mOrderPresenter;
     private RecyclerView mOrderList;
     private ImageView mChoiceTime;
