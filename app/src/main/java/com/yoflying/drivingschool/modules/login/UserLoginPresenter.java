@@ -1,6 +1,7 @@
 package com.yoflying.drivingschool.modules.login;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.yoflying.drivingschool.app.DriverApplication;
@@ -60,8 +61,9 @@ public class UserLoginPresenter extends BasePresenter<IUserLoginView>{
 
             @Override
             public void onFailure(String msg) {
-                //Log.e("dandy","error "+msg);
+                Log.e("dandy","回调 "+msg);
                 mUserLoginView.cancelDialog();
+                mUserLoginView.toastMeassager(msg);
             }
 
             @Override

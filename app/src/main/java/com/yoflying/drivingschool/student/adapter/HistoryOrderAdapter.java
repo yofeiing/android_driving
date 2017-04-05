@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-/**
+/**历史预约记录适配器
  * Created by yaojiulong on 2017/4/1.
  */
 

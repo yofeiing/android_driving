@@ -147,6 +147,9 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
     @Override
     public void cancelDialog() {
 //        mDialog.cancel();
+
+        mProgressbar.setVisibility(View.GONE);
+        //CircularAnim.hide(mSingIn).go();
     }
 
     @Override
@@ -158,8 +161,7 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
 
             }
         },500);
-        Snackbar.make(mLoginLayout, msg, Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
+        showSnackView(getView(),msg);
     }
 
     @Override

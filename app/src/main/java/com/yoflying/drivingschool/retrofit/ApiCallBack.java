@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
+import java.net.ConnectException;
+
 import retrofit2.adapter.rxjava.HttpException;
 import rx.Subscriber;
 
@@ -41,10 +43,15 @@ public abstract class ApiCallBack<M> extends Subscriber<M> {
                     onFailure("服务器异常");
             }
         } else {
-            onFailure(e.getMessage());
+            //onFailure(e.getMessage());
         }
         logger.error(LogDef.LOG_HTTP, e.toString());
-        onFinish();
+
+        if (e instanceof ConnectException){
+            onFailure("请求服务器超时");
+        }
+
+
     }
 
     @Override

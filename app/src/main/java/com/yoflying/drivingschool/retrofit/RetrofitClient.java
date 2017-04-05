@@ -26,7 +26,7 @@ import rx.android.BuildConfig;
 
 public class RetrofitClient {
     public static Retrofit mRetrofit;
-    private static final int DEFAULT_TIMEOUT = 8;
+    private static final int DEFAULT_TIMEOUT = 5;
 
 
     public static Retrofit retrofit(final String token) {
@@ -58,11 +58,17 @@ public class RetrofitClient {
 
             httpClientBuilder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
             httpClientBuilder.writeTimeout(DEFAULT_TIMEOUT,TimeUnit.SECONDS);
+            httpClientBuilder.readTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
             Gson gson = new GsonBuilder()
                     //配置Gson
                     .setDateFormat("yyyy-MM-dd hh:mm:ss")
                     .create();
+
+
             OkHttpClient okHttpClient = httpClientBuilder.build();
+
+
+
             mRetrofit=new Retrofit.Builder()
                     .baseUrl(ApiStore.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create(gson))

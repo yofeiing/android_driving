@@ -34,15 +34,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**一天手动选择配置页面
+/**
+ * 一天手动选择配置页面
  * Created by yaojiulong on 2017/2/20.
  */
 
 public class ChooseTimeActivity extends BaseActivity
-        implements InputTimeListener ,View.OnClickListener, IChoiceTimeView,CourseConfigAdapter.GetItemSomeInfo
-        ,SelectTeacherFragment.GetTeacherLinstener{
+        implements InputTimeListener, View.OnClickListener, IChoiceTimeView, CourseConfigAdapter.GetItemSomeInfo
+        , SelectTeacherFragment.GetTeacherLinstener {
     private TextView mDate;
-    private ImageView mAddItem,mMenuRight;
+    private ImageView mAddItem, mMenuRight;
     private RecyclerView mConfigView;
     private InputTimeFragment mInputTimeFragment;
     private ChoiseTimePresenter mPresenter;
@@ -53,25 +54,25 @@ public class ChooseTimeActivity extends BaseActivity
     private List<String> mTeacherNames;
     private TextView mAddDate;
     private Gson mGson;
-    private Map<String,List<CourseConfig>> mConfigMap;
+    private Map<String, List<CourseConfig>> mConfigMap;
 
     @Override
     protected void initView() {
         setContentView(R.layout.activity_choise_time);
         addToolbar();
         setTitle(getResources().getString(R.string.auto_choise_time_title));
-        mMenuRight=getToolbarmenu();
+        mMenuRight = getToolbarmenu();
         mMenuRight.setImageResource(R.drawable.icon_submit);
-        mPresenter=new ChoiseTimePresenter(this);
+        mPresenter = new ChoiseTimePresenter(this);
     }
 
     @Override
     protected void findViewId() {
         super.findViewId();
-        mAddDate=findView(R.id.choice_time_add_date);
-        mAddItem=findView(R.id.choice_time_add_item);
-        mConfigView=findView(R.id.choice_time_list);
-        mDate=findView(R.id.choice_time_date_tv);
+        mAddDate = findView(R.id.choice_time_add_date);
+        mAddItem = findView(R.id.choice_time_add_item);
+        mConfigView = findView(R.id.choice_time_list);
+        mDate = findView(R.id.choice_time_date_tv);
         //添加下划线
         mAddDate.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
 
@@ -80,14 +81,14 @@ public class ChooseTimeActivity extends BaseActivity
     @Override
     protected void initData() {
         super.initData();
-        mApplication= (DriverApplication) getApplication();
-        mCourses=new ArrayList<>();
-        mTeacherNames=new ArrayList<>();
-        mAdapter=new CourseConfigAdapter(this,mCourses,mTeacherNames);
+        mApplication = (DriverApplication) getApplication();
+        mCourses = new ArrayList<>();
+        mTeacherNames = new ArrayList<>();
+        mAdapter = new CourseConfigAdapter(this, mCourses, mTeacherNames);
         mConfigView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         mConfigView.setAdapter(mAdapter);
         mPresenter.getTeachersInfo();
-        mGson=new Gson();
+        mGson = new Gson();
 
     }
 
@@ -135,40 +136,40 @@ public class ChooseTimeActivity extends BaseActivity
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.choice_time_add_date:
-                if (mInputTimeFragment==null){
-                    mInputTimeFragment=new InputTimeFragment();
+                if (mInputTimeFragment == null) {
+                    mInputTimeFragment = new InputTimeFragment();
                 }
                 mInputTimeFragment.show(getSupportFragmentManager(), Config.TAG_FRAGMENT_START_TIME);
                 break;
             case R.id.choice_time_add_item:
 
-                if (mDate.getText().toString().equals("")){
-                    showSnackView(getView(),"日期还没有添加，请先添加日期");
+                if (mDate.getText().toString().equals("")) {
+                    showSnackView(getView(), "日期还没有添加，请先添加日期");
                     return;
                 }
 
-                if (mCourses.size()<7){
-                    CourseConfig config=setDefaultData();
+                if (mCourses.size() < 7) {
+                    CourseConfig config = setDefaultData();
 
                     mTeacherNames.add("");
                     mCourses.add(config);
                     mAdapter.notifyDataSetChanged();
                 }
-                if (mCourses.size()==7){
+                if (mCourses.size() == 7) {
                     mAddItem.setVisibility(View.GONE);
                 }
                 break;
 
             case R.id.toolbar_right_menu:
-                mConfigMap=new HashMap<>();
-                mConfigMap.put(mDate.getText().toString(),mCourses);
-                Intent intent=new Intent(this,ManualConfigActivity.class);
-                Bundle bundle=new Bundle();
+                mConfigMap = new HashMap<>();
+                mConfigMap.put(mDate.getText().toString(), mCourses);
+                Intent intent = new Intent(this, ManualConfigActivity.class);
+                Bundle bundle = new Bundle();
                 bundle.putSerializable(Config.KEY_BUNDLE_CONFIG, (Serializable) mConfigMap);
-                intent.putExtra(Config.KEY_INTENT_CONFIG,bundle);
-                setResult(Config.MANULA_REQUEST_CODE,intent);
+                intent.putExtra(Config.KEY_INTENT_CONFIG, bundle);
+                setResult(Config.MANULA_REQUEST_CODE, intent);
                 this.finish();
                 break;
 
@@ -178,18 +179,19 @@ public class ChooseTimeActivity extends BaseActivity
 
     /**
      * 设置默认数据
+     *
      * @return
      */
-    private CourseConfig setDefaultData(){
-        CourseConfig config=new CourseConfig();
+    private CourseConfig setDefaultData() {
+        CourseConfig config = new CourseConfig();
 
-        CourseTimeBean bean=new CourseTimeBean();
-        CourseTimeBean.TimeBean timeBean=new CourseTimeBean.TimeBean();
+        CourseTimeBean bean = new CourseTimeBean();
+        CourseTimeBean.TimeBean timeBean = new CourseTimeBean.TimeBean();
         bean.setSize(10);
-        timeBean.setStart(mDate.getText().toString()+" "+"09:00"+":00");
-        timeBean.setStop(mDate.getText().toString()+" "+"11:00"+":00");
+        timeBean.setStart(mDate.getText().toString() + " " + "09:00" + ":00");
+        timeBean.setStop(mDate.getText().toString() + " " + "11:00" + ":00");
         bean.setTime(timeBean);
-        Gson gson=new Gson();
+        Gson gson = new Gson();
         config.setAppointmentDate(gson.toJson(bean));
         config.setTestAddress("民乐");
         config.setStatus(1);
@@ -200,22 +202,23 @@ public class ChooseTimeActivity extends BaseActivity
     @Override
     public void getCourse(int position, int course) {
 
-        course=course+2;
+        course = course + 2;
         mCourses.get(position).setTestCourse(course);
     }
 
     /**
      * 回调获取recyclerview里面的人数
+     *
      * @param positon
      * @param size
      */
     @Override
     public void getNumber(int positon, String size) {
         // Log.e("dandy","postion "+positon+"  size "+size);
-        if (!size.equals("")){
-            int s=Integer.valueOf(size);
+        if (!size.equals("")) {
+            int s = Integer.valueOf(size);
             // mCourses.get(positon).getAppointmentDate().setSize(s);
-            CourseTimeBean bean=mGson.fromJson(mCourses.get(positon).getAppointmentDate(),CourseTimeBean.class);
+            CourseTimeBean bean = mGson.fromJson(mCourses.get(positon).getAppointmentDate(), CourseTimeBean.class);
             bean.setSize(s);
             mCourses.get(positon).setAppointmentDate(mGson.toJson(bean));
 
@@ -225,10 +228,10 @@ public class ChooseTimeActivity extends BaseActivity
 
     @Override
     public void getStartTime(int postion, String time) {
-        CourseTimeBean timeBean=mGson.fromJson(mCourses.get(postion).getAppointmentDate(),CourseTimeBean.class);
-        timeBean.getTime().setStart(mDate.getText().toString()+" "+time+":00");
+        CourseTimeBean timeBean = mGson.fromJson(mCourses.get(postion).getAppointmentDate(), CourseTimeBean.class);
+        timeBean.getTime().setStart(mDate.getText().toString() + " " + time + ":00");
         mCourses.get(postion).setAppointmentDate(mGson.toJson(timeBean));
-        Log.e("dandy","log "+mCourses.get(postion).toString());
+        Log.e("dandy", "log " + mCourses.get(postion).toString());
         mAdapter.notifyDataSetChanged();
 
 
@@ -236,21 +239,22 @@ public class ChooseTimeActivity extends BaseActivity
 
     @Override
     public void getEndTime(int postion, String time) {
-        CourseTimeBean timeBean=mGson.fromJson(mCourses.get(postion).getAppointmentDate(),CourseTimeBean.class);
-        timeBean.getTime().setStop(mDate.getText().toString()+" "+time+":00");
+        CourseTimeBean timeBean = mGson.fromJson(mCourses.get(postion).getAppointmentDate(), CourseTimeBean.class);
+        timeBean.getTime().setStop(mDate.getText().toString() + " " + time + ":00");
         mCourses.get(postion).setAppointmentDate(mGson.toJson(timeBean));
-        Log.i("dandy","log "+mCourses.get(postion).toString());
+        Log.i("dandy", "log " + mCourses.get(postion).toString());
         mAdapter.notifyDataSetChanged();
 
     }
 
     /**
      * 网络请求获取驾校全部教练
+     *
      * @param teachers
      */
     @Override
     public void getTeachersInfo(List<Person> teachers) {
-        mTeachers=teachers;
+        mTeachers = teachers;
         mApplication.setTeachersList(mTeachers);
         // Log.e("dandy","数据过来了 "+mTeachers.toString());
     }
@@ -262,8 +266,8 @@ public class ChooseTimeActivity extends BaseActivity
 
     @Override
     public void getTeacherinfo(int postion, int teacherpos) {
-        Person person=mTeachers.get(teacherpos);
-        mTeacherNames.set(postion,person.getName());
+        Person person = mTeachers.get(teacherpos);
+        mTeacherNames.set(postion, person.getName());
         mCourses.get(postion).setCoachId(person.getId());
         mAdapter.notifyDataSetChanged();
 
@@ -272,6 +276,6 @@ public class ChooseTimeActivity extends BaseActivity
     @Override
     protected void onResume() {
         super.onResume();
-        Log.e("dandy","onResume");
+        Log.e("dandy", "onResume");
     }
 }
