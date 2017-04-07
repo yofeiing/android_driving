@@ -27,8 +27,9 @@ import rx.Observable;
 public interface ApiStore {
 //       String BASE_URL="http://waddwaw.vicp.cc:14858/";
     // String BASE_URL="http://192.168.0.103:8080/";
-    // String BASE_URL="http://120.27.33.15:8080/";
-     String BASE_URL="http://172.16.45.196:8080/";
+//     String BASE_URL="http://120.27.33.15:8080/";
+//     String BASE_URL="http://172.16.45.196:8080/";
+     String BASE_URL="http://192.168.1.128:8080/";
 
     @POST("restful/loginPost")
     Observable<HttpsResult<Person>> login(@Body RequestBody body);

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AutoCompleteTextView;
 
 import android.widget.Button;
@@ -45,8 +46,8 @@ public class LoginActivity extends BaseActivity implements IUserLoginView{
 
     @Override
     protected void initView() {
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         setContentView(R.layout.activity_login);
-
 //        addToolbar();
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
