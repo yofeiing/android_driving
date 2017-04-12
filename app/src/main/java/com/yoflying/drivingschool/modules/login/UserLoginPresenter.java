@@ -72,7 +72,7 @@ public class UserLoginPresenter extends BasePresenter<IUserLoginView>{
             }
         };
         User user=new User();
-        user.setCategory(type);
+        user.setCategory(type == 3 ? 2 : type);
         user.setUsername(userName);
         user.setPassword(pwd);
         Gson gson=new Gson();

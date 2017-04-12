@@ -6,7 +6,7 @@ package com.yoflying.drivingschool.config;
 
 public class Config {
     public static final int USER_TYPE_ADMIN = 1;
-    public static final int USER_TYPE_TEACHER = 1;
+    public static final int USER_TYPE_TEACHER = 3;
     public static final int USER_TYPE_STUDENT = 2;
     public static final int TYPE_LEAVE = 5;
     public static final int TYPE_CONFIG = 6;
