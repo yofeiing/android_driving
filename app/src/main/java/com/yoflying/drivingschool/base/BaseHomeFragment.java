@@ -42,6 +42,7 @@ public class BaseHomeFragment extends BaseFragment {
     @Override
     public void initData() {
         super.initData();
+        Log.e("dandy","父类方法");
         initFragment();
     }
 
