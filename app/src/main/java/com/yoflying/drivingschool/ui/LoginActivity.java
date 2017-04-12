@@ -31,7 +31,7 @@ import com.yoflying.drivingschool.widget.CircularAnim;
  */
 public class LoginActivity extends BaseActivity implements IUserLoginView{
     private UserLoginPresenter mUserLoginPresenter=new UserLoginPresenter(this);
-    private AutoCompleteTextView mUserName;
+    private EditText mUserName;
     private EditText mPassword;
     private RadioGroup mRadioGroup;
     private RadioButton mAdmin,mTeacher,mStudent;
